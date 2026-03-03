@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styles from './Layout.module.scss';
-import { NavItems } from './helpers/NavItems';
+import NavigationBar from './NavigationBar';
+import companyLogo from '@assets/images/SpaceX.png';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,20 +18,10 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Movie Explorer</h1>
-        <nav className={styles.nav}>
-          {NavItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                `${styles.link}  ${isActive ? styles.active : ''}`
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+        <div className={styles.logoWrapper}>
+          <img src={companyLogo} className={styles.companyLogo} />
+        </div>
+        <NavigationBar />
       </header>
       <main className={styles.main}>{children}</main>
     </div>

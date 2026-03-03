@@ -1,8 +1,9 @@
 import CompanySection from './sections/CompanySection';
+import styles from './HomePage.module.scss';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className={styles.homeWrapper}>
       <CompanySection />
     </div>
   );

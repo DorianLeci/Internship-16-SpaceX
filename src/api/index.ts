@@ -1,4 +1,5 @@
 import axios, { AxiosError, type AxiosResponse } from 'axios';
+import camelcaseKeys from 'camelcase-keys';
 
 export const api = axios.create({
   baseURL: 'https://api.spacexdata.com/v4',
@@ -16,7 +17,7 @@ type ErrorResponse = AxiosError & {
 };
 
 api.interceptors.response.use(
-  (response) => response.data,
+  (response) => camelcaseKeys(response.data, { deep: true }),
   (error: ErrorResponse) => {
     return Promise.reject(error.response.data.message || error.message);
   },
