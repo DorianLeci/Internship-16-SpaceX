@@ -1,18 +1,12 @@
 import { useCompanyInfo } from '@api/company';
 import styles from './CompanySection.module.scss';
-import AnimatedSkeleton from '@components/AnimatedSkeleton';
 import { motion } from 'framer-motion';
+import CompanySkeleton from './Skeleton';
 
 const CompanySection = () => {
   const { data, isLoading, isError } = useCompanyInfo();
 
-  if (isLoading)
-    return (
-      <div className={styles.skeletonContainer}>
-        <AnimatedSkeleton width="60%" height={30} />
-        <AnimatedSkeleton width="100%" count={8} height={24} />
-      </div>
-    );
+  if (isLoading) return <CompanySkeleton />;
 
   if (isError || !data) {
     return <p>Error loading company info!</p>;
