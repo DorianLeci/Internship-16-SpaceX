@@ -3,7 +3,7 @@ export interface Company {
   founder: string;
   founded: string;
   employees: number;
-  launch_sites: 3;
-  test_sites: 1;
+  launch_sites: number;
+  test_sites: number;
   summary: string;
 }

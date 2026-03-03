@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import type { Launch } from '../types/Launch';
 import { api } from './index';
+import type { Company } from '@app-types/Company';
 
-export const getCompany = () => {
-  return api.get<never, Launch>('/company');
+export const getCompanyInfo = () => {
+  return api.get<never, Company>('/company');
 };
 
-export const useCompany = () => {
-  return useQuery({ queryKey: ['nextLaunch'], queryFn: getCompany });
+export const useCompanyInfo = () => {
+  return useQuery({ queryKey: ['nextLaunch'], queryFn: getCompanyInfo });
 };
