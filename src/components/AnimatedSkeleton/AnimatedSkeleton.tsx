@@ -1,5 +1,4 @@
-import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import useShimmer from 'hooks/useShimmer';
 import Skeleton from 'react-loading-skeleton';
 
 interface AnimatedSkeletonProps {
@@ -9,22 +8,10 @@ interface AnimatedSkeletonProps {
 }
 
 const AnimatedSkeleton = ({ width, height, count }: AnimatedSkeletonProps) => {
-  const skeletonRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (skeletonRef.current) {
-      gsap.to(skeletonRef.current, {
-        opacity: 0.8,
-        duration: 1,
-        yoyo: true,
-        repeat: -1,
-        ease: 'power1.inOut',
-      });
-    }
-  });
+  const ref = useShimmer({});
 
   return (
-    <div ref={skeletonRef}>
+    <div ref={ref}>
       <Skeleton width={width} height={height} count={count} />
     </div>
   );

@@ -1,0 +1,22 @@
+import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
+
+interface FadeInUpProps {
+  children: ReactNode;
+  className?: string;
+}
+
+const FadeInUp = ({ children, className }: FadeInUpProps) => {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export default FadeInUp;

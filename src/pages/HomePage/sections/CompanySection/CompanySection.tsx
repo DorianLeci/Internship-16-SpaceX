@@ -1,7 +1,7 @@
 import { useCompanyInfo } from '@api/company';
 import styles from './CompanySection.module.scss';
-import { motion } from 'framer-motion';
 import CompanySkeleton from './Skeleton';
+import FadeInUp from '@components/FadeInUp';
 
 const CompanySection = () => {
   const { data, isLoading, isError } = useCompanyInfo();
@@ -13,12 +13,7 @@ const CompanySection = () => {
   }
 
   return (
-    <motion.div
-      className={styles.container}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-    >
+    <FadeInUp className={styles.container}>
       <div className={styles.grid}>
         <div className={styles.infoItem}>
           <p className={styles.label}>Founder</p>
@@ -93,7 +88,7 @@ const CompanySection = () => {
         <p className={styles.label}>Summary</p>
         <p className={styles.value}>{data.summary}</p>
       </div>
-    </motion.div>
+    </FadeInUp>
   );
 };
 
