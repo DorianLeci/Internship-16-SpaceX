@@ -1,3 +1,5 @@
+@use '@styles/variables.scss' as vars;
+
 .nav {
   display: flex;
   gap: 1rem;
@@ -7,7 +9,7 @@
 .link {
   position: relative;
   z-index: 0;
-  color: rgba(240, 240, 250, 0.9);
+  color: vars.$white-dimmed;
   font-weight: 600;
   text-decoration: none;
   text-shadow: 4px 0px 2px black;

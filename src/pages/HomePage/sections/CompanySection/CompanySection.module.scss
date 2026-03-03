@@ -1,0 +1,72 @@
+@use '@styles/variables.scss' as vars;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 22px;
+  font-weight: bold;
+  color: vars.$white-dimmed;
+}
+
+.value {
+  font-size: 24px;
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+
+.link {
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  color: vars.$light-blue;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: orange;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
+}
+
+.skeletonContainer {
+  width: 100%;
+}

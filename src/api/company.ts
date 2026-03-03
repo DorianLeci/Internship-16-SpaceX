@@ -4,7 +4,7 @@ import type { Company } from '@app-types/Company';
 
 export const getCompanyInfo = async () => {
   const res = api.get<never, Company>('/company');
-  await new Promise((r) => setTimeout(r, 10000));
+  await new Promise((r) => setTimeout(r, 1000));
   return res;
 };
 
