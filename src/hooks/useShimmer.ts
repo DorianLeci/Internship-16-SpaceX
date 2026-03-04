@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 interface UseRevealOptions {
@@ -8,7 +8,7 @@ interface UseRevealOptions {
 
 const useShimmer = ({
   shimmerOpacity = 0.8,
-  shimmerDuration = 1,
+  shimmerDuration = 0.5,
 }: UseRevealOptions) => {
   const ref = useRef<HTMLDivElement>(null);
 

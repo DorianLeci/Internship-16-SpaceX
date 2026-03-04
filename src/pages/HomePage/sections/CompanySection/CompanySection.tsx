@@ -2,11 +2,13 @@ import { useCompanyInfo } from '@api/company';
 import styles from './CompanySection.module.scss';
 import CompanySkeleton from './Skeleton';
 import FadeInUp from '@components/FadeInUp';
+import useReveal from 'hooks/useReveal';
 
 const CompanySection = () => {
   const { data, isLoading, isError } = useCompanyInfo();
+  const visible = useReveal({ isLoading });
 
-  if (isLoading) return <CompanySkeleton />;
+  if (visible) return <CompanySkeleton />;
 
   if (isError || !data) {
     return <p>Error loading company info!</p>;
@@ -14,79 +16,82 @@ const CompanySection = () => {
 
   return (
     <FadeInUp className={styles.container}>
-      <div className={styles.grid}>
-        <div className={styles.infoItem}>
-          <p className={styles.label}>Founder</p>
-          <p className={styles.value}>{data.founder}</p>
-        </div>
+      <h2 className={styles.title}>Company info</h2>
+      <div className={styles.content}>
+        <div className={styles.grid}>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>Founder</p>
+            <p className={styles.value}>{data.founder}</p>
+          </div>
 
-        <div className={styles.infoItem}>
-          <p className={styles.label}>CEO</p>
-          <p className={styles.value}>{data.ceo}</p>
-        </div>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>CEO</p>
+            <p className={styles.value}>{data.ceo}</p>
+          </div>
 
-        <div className={styles.infoItem}>
-          <p className={styles.label}>Founded</p>
-          <p className={styles.value}>{data.founded}</p>
-        </div>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>Founded</p>
+            <p className={styles.value}>{data.founded}</p>
+          </div>
 
-        <div className={styles.infoItem}>
-          <p className={styles.label}>Employees</p>
-          <p className={styles.value}>{data.employees}</p>
-        </div>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>Employees</p>
+            <p className={styles.value}>{data.employees}</p>
+          </div>
 
-        <div className={styles.infoItem}>
-          <p className={styles.label}>Launch Sites</p>
-          <p className={styles.value}>{data.launchSites}</p>
-        </div>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>Launch Sites</p>
+            <p className={styles.value}>{data.launchSites}</p>
+          </div>
 
-        <div className={styles.infoItem}>
-          <p className={styles.label}>Test Sites</p>
-          <p className={styles.value}>{data.testSites}</p>
-        </div>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>Test Sites</p>
+            <p className={styles.value}>{data.testSites}</p>
+          </div>
 
-        <div className={styles.infoItem}>
-          <p className={styles.label}>Headquarters</p>
-          <p className={styles.value}>
-            {data.headquarters.address}, {data.headquarters.city},{' '}
-            {data.headquarters.state}
-          </p>
-        </div>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>Headquarters</p>
+            <p className={styles.value}>
+              {data.headquarters.address}, {data.headquarters.city},{' '}
+              {data.headquarters.state}
+            </p>
+          </div>
 
-        <div className={styles.infoItem}>
-          <p className={styles.label}>Links</p>
-          <div className={styles.links}>
-            <a
-              className={styles.link}
-              href={data.links.website}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Website
-            </a>
-            <a
-              className={styles.link}
-              href={data.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Twitter
-            </a>
-            <a
-              className={styles.link}
-              href={data.links.flickr}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Flickr
-            </a>
+          <div className={styles.infoItem}>
+            <p className={styles.label}>Links</p>
+            <div className={styles.links}>
+              <a
+                className={styles.link}
+                href={data.links.website}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Website
+              </a>
+              <a
+                className={styles.link}
+                href={data.links.twitter}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Twitter
+              </a>
+              <a
+                className={styles.link}
+                href={data.links.flickr}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Flickr
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={styles.infoItem}>
-        <p className={styles.label}>Summary</p>
-        <p className={styles.value}>{data.summary}</p>
+        <div className={styles.infoItem}>
+          <p className={styles.label}>Summary</p>
+          <p className={styles.value}>{data.summary}</p>
+        </div>
       </div>
     </FadeInUp>
   );

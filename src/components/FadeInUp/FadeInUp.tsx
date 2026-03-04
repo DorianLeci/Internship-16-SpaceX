@@ -10,9 +10,9 @@ const FadeInUp = ({ children, className }: FadeInUpProps) => {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      transition={{ duration: 1, ease: 'easeOut' }}
     >
       {children}
     </motion.div>

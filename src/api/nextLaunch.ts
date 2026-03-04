@@ -3,7 +3,8 @@ import type { Launch } from '../types/Launch';
 import { api } from './index';
 
 export const getNextLaunch = () => {
-  return api.get<never, Launch>('/launches/next');
+  const res = api.get<never, Launch>('/launches/next');
+  return res;
 };
 
 export const useNextLaunch = () => {
