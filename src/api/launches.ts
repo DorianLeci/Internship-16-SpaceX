@@ -3,8 +3,9 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '.';
 import type { LaunchFilter } from '@app-types/LaunchFilter';
 
-export const getLaunches = async (filter: LaunchFilter) => {
+export const getLaunches = async (filter: LaunchFilter, query: any) => {
   return await api.post<never, LaunchesResponse>('/launches/query', {
+    query,
     options: { page: filter.page, limit: filter.limit, sort: { date_utc: -1 } },
   });
 };
@@ -31,7 +32,7 @@ export const useLaunches = (filter: LaunchFilter) => {
 
   return useQuery({
     queryKey,
-    queryFn: () => getLaunches(filter),
+    queryFn: () => getLaunches(filter, query),
     placeholderData: () => {
       if (filter.page > 1) {
         return queryClient.getQueryData<LaunchesResponse>([

@@ -3,7 +3,10 @@ import { Filter } from '@app-types/Filter';
 import type { LaunchFilter } from '@app-types/LaunchFilter';
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import SearchBar from './sections/components';
+import SearchBar from './sections/components/SearchBar';
+import FilterBar from './sections/components/FilterBar';
+import styles from './LaunchesPage.module.scss';
+import LaunchCard from './sections/components/LaunchCard';
 
 const LaunchesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,21 +56,13 @@ const LaunchesPage = () => {
   );
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Launches</h1>
       <SearchBar onSearchChange={handleSearch} />
-      <div>
-        <button onClick={() => handleFilterChange(undefined)}>All</button>
-        <button onClick={() => handleFilterChange(Filter.SUCCESS)}>
-          Success
-        </button>
-        <button onClick={() => handleFilterChange(Filter.FAILURE)}>
-          Failure
-        </button>
-        <button onClick={() => handleFilterChange(Filter.UPCOMING)}>
-          Upcoming
-        </button>
-      </div>
+      <FilterBar onFilterChange={handleFilterChange} />
+      {data?.docs.map((launch) => (
+        <LaunchCard key={launch.id} launch={launch} />
+      ))}
     </div>
   );
 };
