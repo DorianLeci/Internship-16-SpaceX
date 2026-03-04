@@ -1,5 +1,3 @@
-@use '@styles/variables.scss' as vars;
-
 .container {
   display: flex;
   flex-direction: column;
@@ -7,8 +5,8 @@
   gap: 1rem;
   width: 800px;
   padding: 20px;
-  border-radius: vars.$main-border-radius;
-  background: vars.$card-bg;
+  border-radius: var(--main-border-radius);
+  background: var(--card-bg);
 }
 
 .message {
@@ -20,10 +18,10 @@
   font-size: 36px;
   color: white;
   font-weight: bold;
-  box-shadow: vars.$card-box-shadow;
+  box-shadow: var(--card-box-shadow);
   border: none;
-  border-radius: vars.$main-border-radius;
-  background: vars.$accent-red;
+  border-radius: var(--main-border-radius);
+  background: var(--accent-red);
   will-change: transform, box-shadow;
   cursor: pointer;
   transition:

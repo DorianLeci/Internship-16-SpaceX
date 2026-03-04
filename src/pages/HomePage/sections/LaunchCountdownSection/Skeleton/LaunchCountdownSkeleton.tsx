@@ -6,7 +6,9 @@ const LaunchCountdownSkeleton = () => {
 
   return (
     <div className={styles.countdownContainer}>
-      <AnimatedSkeleton width="300px" height="40px" />
+      <h2 className={styles.title}>
+        <AnimatedSkeleton width="300px" height="40px" />
+      </h2>
       <div className={styles.content}>
         {units.map((unit) => (
           <div className={styles.card} key={unit}>

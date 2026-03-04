@@ -1,18 +1,46 @@
-$font-primary: D-DIN, Arial, Verdana, sans-serif;
+:root {
+  --font-primary: D-DIN, Arial, Verdana, sans-serif;
 
-$bg-color-body: #0b0b0f;
+  --bg-color-body: #0b0b0f;
+  --white-dimmed: rgba(240, 240, 250, 0.9);
 
-$white-dimmed: rgba(240, 240, 250, 0.9);
-$light-blue: #7dcafa;
+  --text-primary: white;
+  --text-secondary: var(--white-dimmed);
 
-$card-bg: linear-gradient(
-  145deg,
-  rgba(255, 255, 255, 0.1),
-  rgba(255, 255, 255, 0.1)
-);
+  --light-blue: #7dcafa;
+  --link-color: var(--light-blue);
+  --link-hover: rgb(161, 215, 249);
 
-$card-box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.5);
+  --container-bg: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
 
-$accent-red: rgb(196, 126, 6);
+  --card-box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.5);
+  --card-box-shadow-hover: 0 25px 30px rgba(253, 253, 253, 0.8);
 
-$main-border-radius: 12px;
+  --accent-red: rgb(196, 126, 6);
+  --main-border-radius: 12px;
+
+  --skeleton-gradient: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+
+  --title-bg: transparent;
+  --title-border: transparent;
+  --title-padding: 10px 20px;
+}
+
+:root[data-theme='light'] {
+  --bg-color-body: #f5f5f5;
+  --container-bg: rgba(255, 245, 230, 0.85);
+  --text-primary: #1b1a1a;
+  --text-secondary: #0c0c0c;
+  --link-color: #1a73e8;
+  --link-hover: rgb(97, 164, 252);
+  --title-bg: var(--container-bg);
+}

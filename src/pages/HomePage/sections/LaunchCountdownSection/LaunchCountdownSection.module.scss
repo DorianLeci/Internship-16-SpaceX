@@ -1,11 +1,10 @@
-@use '@styles/variables.scss' as vars;
-
 .countdownContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   padding-bottom: 64px;
+  color: var(--text-primary);
 }
 
 .content {
@@ -19,8 +18,8 @@
   align-items: center;
   padding: 1.5rem 2rem;
   border-radius: 12px;
-  background: vars.$card-bg;
-  box-shadow: vars.$card-box-shadow;
+  background: var(--container-bg);
+  box-shadow: var(--card-box-shadow);
   width: 200px;
   font-weight: bold;
   will-change: transform;
@@ -30,12 +29,16 @@
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 25px 30px rgba(253, 253, 253, 0.8);
+    box-shadow: var(--card-box-shadow-hover);
   }
 }
 
 .title {
+  padding: var(--title-padding);
+  color: var(--text-primary);
   font-size: 40px;
+  border-radius: var(--main-border-radius);
+  background-color: var(--title-bg);
 }
 
 .label {

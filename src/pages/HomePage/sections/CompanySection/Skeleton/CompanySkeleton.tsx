@@ -4,7 +4,9 @@ import styles from '../CompanySection.module.scss';
 const CompanySkeleton = () => {
   return (
     <div className={styles.container}>
-      <AnimatedSkeleton width="300px" height="40px" />
+      <h2 className={styles.title}>
+        <AnimatedSkeleton width="300px" height="40px" />
+      </h2>
       <div className={styles.content}>
         <div className={styles.grid}>
           <div className={styles.infoItem}>
