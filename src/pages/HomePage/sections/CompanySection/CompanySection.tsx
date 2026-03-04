@@ -3,15 +3,18 @@ import styles from './CompanySection.module.scss';
 import CompanySkeleton from './Skeleton';
 import FadeInUp from '@components/FadeInUp';
 import useReveal from 'hooks/useReveal';
+import SectionError from '@components/SectionError';
 
 const CompanySection = () => {
-  const { data, isLoading, isError } = useCompanyInfo();
+  const { data, isLoading, isError, refetch } = useCompanyInfo();
   const visible = useReveal({ isLoading });
 
   if (visible) return <CompanySkeleton />;
 
   if (isError || !data) {
-    return <p>Error loading company info!</p>;
+    return (
+      <SectionError message={'Error loading company info!'} onRetry={refetch} />
+    );
   }
 
   return (

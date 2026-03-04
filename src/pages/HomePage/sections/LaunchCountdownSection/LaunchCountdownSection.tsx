@@ -5,6 +5,7 @@ import { useNextLaunch } from '@api/nextLaunch';
 import FadeInUp from '@components/FadeInUp';
 import useReveal from 'hooks/useReveal';
 import LaunchCountdownSkeleton from './Skeleton/LaunchCountdownSkeleton';
+import SectionError from '@components/SectionError';
 
 const CountdownRenderer: CountdownRendererFn = ({
   days,
@@ -40,13 +41,18 @@ const CountdownRenderer: CountdownRendererFn = ({
 };
 
 const LaunchCountdownSection = () => {
-  const { data: nextLaunch, isLoading, isError } = useNextLaunch();
+  const { data: nextLaunch, isLoading, isError, refetch } = useNextLaunch();
   const visible = useReveal({ isLoading });
 
   if (visible) return <LaunchCountdownSkeleton />;
 
   if (isError || !nextLaunch) {
-    return <p>Error loading next launch!</p>;
+    return (
+      <SectionError
+        message="Error loading next launch countdown"
+        onRetry={refetch}
+      />
+    );
   }
 
   const originalDate = new Date(nextLaunch.dateUtc);

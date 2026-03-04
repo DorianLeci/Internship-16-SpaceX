@@ -1,0 +1,42 @@
+@use '@styles/variables.scss' as vars;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 800px;
+  padding: 20px;
+  border-radius: vars.$main-border-radius;
+  background: vars.$card-bg;
+}
+
+.message {
+  font-size: 40px;
+  font-weight: bold;
+}
+.retryButton {
+  padding: 10px 20px;
+  font-size: 36px;
+  color: white;
+  font-weight: bold;
+  box-shadow: vars.$card-box-shadow;
+  border: none;
+  border-radius: vars.$main-border-radius;
+  background: vars.$accent-red;
+  will-change: transform, box-shadow;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 8px rgba(239, 28, 28, 0.7);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 8px rgba(239, 28, 28, 0.7);
+  }
+}
