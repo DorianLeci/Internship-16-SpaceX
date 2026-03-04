@@ -13,7 +13,8 @@
       "@pages/*": ["pages/*"],
       "@api/*": ["api/*"],
       "@app-types/*": ["types/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@context/*": ["context/*"]
     },
 
     /* Bundler mode */
@@ -28,7 +29,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },

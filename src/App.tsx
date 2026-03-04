@@ -2,16 +2,19 @@ import AppPaths from './routes/paths';
 import { Route, Routes } from 'react-router-dom';
 import Layout from '@components/Layout';
 import { lazy } from 'react';
+import { ThemeProvider } from '@context/ThemeContext';
 
 const HomePage = lazy(() => import('@pages/HomePage'));
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path={AppPaths.HOME} element={<HomePage />} />
-      </Routes>
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <Routes>
+          <Route path={AppPaths.HOME} element={<HomePage />} />
+        </Routes>
+      </Layout>
+    </ThemeProvider>
   );
 }
 
