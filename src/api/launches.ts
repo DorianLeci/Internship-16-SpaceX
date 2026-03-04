@@ -1,0 +1,52 @@
+import type { LaunchesResponse } from '@app-types/Launch';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { api } from '.';
+
+interface LaunchFilter {
+  page: number;
+  limit: number;
+  search?: string;
+  filter?: 'success' | 'failure' | 'upcoming';
+}
+
+export const getLaunches = async (filter: LaunchFilter) => {
+  return await api.post<never, LaunchesResponse>('/launches/query', {
+    options: { page: filter.page, limit: filter.limit, sort: { date_utc: -1 } },
+  });
+};
+
+export const useLaunches = (filter: LaunchFilter) => {
+  const query: any = {};
+  if (filter.search) query.name = { $regex: filter.search, $options: 'i' };
+
+  switch (filter.filter) {
+    case 'success':
+      query.success = true;
+      break;
+    case 'failure':
+      query.success = false;
+      break;
+    case 'upcoming':
+      query.upcoming = true;
+      break;
+    default:
+      break;
+  }
+  const queryKey: [string, LaunchFilter] = ['launches', filter];
+  const queryClient = useQueryClient();
+
+  return useQuery({
+    queryKey,
+    queryFn: () => getLaunches(filter),
+    placeholderData: () => {
+      if (filter.page > 1) {
+        return queryClient.getQueryData<LaunchesResponse>([
+          'launches',
+          { ...filter, page: filter.page - 1 },
+        ]);
+      }
+      return undefined;
+    },
+    staleTime: 6000,
+  });
+};

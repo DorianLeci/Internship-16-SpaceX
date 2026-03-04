@@ -1,5 +1,23 @@
 export interface Launch {
+  id: string;
   name: string;
-  dateUtc: string;
-  flightNumber: number;
+  upcoming: boolean;
+  success: boolean | null;
+  details: string;
+  rocket: {
+    rocket_name: string;
+    rocket_type: string;
+  };
+
+  links: {
+    missionPatch?: string;
+    articleLink?: string;
+    videoLink?: string;
+  };
+}
+
+export interface LaunchesResponse {
+  launches: Launch[];
+  page: number;
+  totalPages: number;
 }

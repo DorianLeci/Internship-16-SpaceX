@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import type { Launch } from '../types/Launch';
+import type { NextLaunch } from '../types/NextLaunch';
 import { api } from './index';
 
-export const getNextLaunch = () => {
-  const res = api.get<never, Launch>('/launches/next');
-  return res;
+export const getNextLaunch = async () => {
+  return await api.get<never, NextLaunch>('/launches/next');
 };
 
 export const useNextLaunch = () => {
