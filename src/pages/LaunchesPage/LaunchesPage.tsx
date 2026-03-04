@@ -7,6 +7,9 @@ import SearchBar from './sections/components/SearchBar';
 import FilterBar from './sections/components/FilterBar';
 import styles from './LaunchesPage.module.scss';
 import LaunchCard from './sections/components/LaunchCard';
+import Pagination from '@components/Pagination';
+import useReveal from 'hooks/useReveal';
+import SectionError from '@components/SectionError';
 
 const LaunchesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -55,6 +58,10 @@ const LaunchesPage = () => {
     [filter],
   );
 
+  if (isError || !data) {
+    return <SectionError message="Error loading launches!" onRetry={refetch} />;
+  }
+
   return (
     <div className={styles.container}>
       <h1>Launches</h1>
@@ -63,6 +70,11 @@ const LaunchesPage = () => {
       {data?.docs.map((launch) => (
         <LaunchCard key={launch.id} launch={launch} />
       ))}
+      <Pagination
+        pageCount={data?.totalPages}
+        currentPage={filter.page}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };
