@@ -1,13 +1,7 @@
 import type { LaunchesResponse } from '@app-types/Launch';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { api } from '.';
-
-interface LaunchFilter {
-  page: number;
-  limit: number;
-  search?: string;
-  filter?: 'success' | 'failure' | 'upcoming';
-}
+import type { LaunchFilter } from '@app-types/LaunchFilter';
 
 export const getLaunches = async (filter: LaunchFilter) => {
   return await api.post<never, LaunchesResponse>('/launches/query', {

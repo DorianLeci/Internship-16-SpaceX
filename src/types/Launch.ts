@@ -17,7 +17,7 @@ export interface Launch {
 }
 
 export interface LaunchesResponse {
-  launches: Launch[];
+  docs: Launch[];
   page: number;
   totalPages: number;
 }
