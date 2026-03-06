@@ -3,13 +3,16 @@ import { Filter } from '@app-types/Filter';
 import type { LaunchFilter } from '@app-types/LaunchFilter';
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import SearchBar from './sections/components/SearchBar';
-import FilterBar from './sections/components/FilterBar';
+import SearchBar from './components/SearchBar';
+import FilterBar from './components/FilterBar';
 import styles from './LaunchesPage.module.scss';
-import LaunchCard from './sections/components/LaunchCard';
+import LaunchCard from './components/LaunchCard';
 import Pagination from '@components/Pagination';
 import useReveal from 'hooks/useReveal';
 import SectionError from '@components/SectionError';
+import LaunchesPageSkeleton from './Skeleton/LaunchesPageSkeleton';
+
+export const PAGE_LIMIT = 20;
 
 const LaunchesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,7 +24,7 @@ const LaunchesPage = () => {
   const [filter, setFilter] = useState<LaunchFilter>({
     page: pageParam,
     search,
-    limit: 20,
+    limit: PAGE_LIMIT,
     filter: filterParam,
   });
 
@@ -59,7 +62,7 @@ const LaunchesPage = () => {
     setFilter((prev) => ({ ...prev, page: newPage }));
   }, []);
 
-  if (visible) return <div style={{ color: 'white' }}>Loadam...</div>;
+  if (visible) return <LaunchesPageSkeleton />;
 
   if (isError || !data) {
     return <SectionError message="Error loading launches!" onRetry={refetch} />;

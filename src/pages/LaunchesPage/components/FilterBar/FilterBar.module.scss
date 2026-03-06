@@ -1,0 +1,28 @@
+.filterBar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 32px;
+}
+
+.filterButton {
+  width: 150px;
+  padding: 5px 20px;
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--card-box-shadow);
+  background: var(--container-bg);
+  cursor: pointer;
+  will-change: transform;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--filter-button-box-shadow-hover);
+  }
+}

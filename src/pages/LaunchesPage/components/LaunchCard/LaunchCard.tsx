@@ -8,18 +8,23 @@ interface LaunchCardProps {
   name: string;
 }
 
+const PREVIEW_LENGTH = 100;
+
 const LaunchCard = ({ details, upcoming, success, name }: LaunchCardProps) => {
+  const preview = details
+    ? details.slice(0, PREVIEW_LENGTH) +
+      (details.length > PREVIEW_LENGTH ? '...' : '')
+    : 'No details available';
+
   return (
     <div className={styles.card}>
       <h2>
         <strong className={styles.label}>Launch name: </strong>
         <span className={styles.value}>{name}</span>
       </h2>
-      <p>
+      <p className={styles.detailsPreview}>
         <strong className={styles.label}>Details: </strong>
-        <span className={styles.value}>
-          {details || 'No details available'}
-        </span>
+        <span className={styles.value}>{preview}</span>
       </p>
       <p>
         <strong className={styles.label}>Upcoming: </strong>

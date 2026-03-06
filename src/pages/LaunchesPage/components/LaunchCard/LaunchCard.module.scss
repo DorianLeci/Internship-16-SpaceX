@@ -1,0 +1,38 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 250px;
+  padding: 40px 20px;
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--card-box-shadow);
+  background: var(--container-bg);
+  cursor: pointer;
+  will-change: transform;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--launch-card-box-shadow-hover);
+  }
+}
+
+.skeletonCard {
+  border-radius: var(--main-border-radius);
+  pointer-events: none;
+}
+
+.label {
+  font-size: 22px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.value {
+  font-size: 24px;
+  color: var(--text-primary);
+}

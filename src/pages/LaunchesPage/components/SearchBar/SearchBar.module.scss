@@ -1,0 +1,22 @@
+.searchBar {
+  input {
+    display: flex;
+    padding: 5px 10px;
+    border: 4px solid var(--input-border-color);
+    border-radius: var(--main-border-radius);
+    font-size: 22px;
+    color: var(--text-secondary);
+    background: var(--container-bg);
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &::placeholder {
+      color: var(--input-placeholder-text);
+      text-transform: capitalize;
+    }
+
+    &:hover {
+      border-color: var(--accent-color, #0070f3);
+    }
+  }
+}

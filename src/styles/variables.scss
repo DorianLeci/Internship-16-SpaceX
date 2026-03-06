@@ -7,20 +7,22 @@
   --text-primary: white;
   --text-secondary: var(--white-dimmed);
 
+  --input-placeholder-text: rgba(240, 240, 250, 0.7);
+
   --light-blue: #7dcafa;
   --link-color: var(--light-blue);
   --link-hover: rgb(161, 215, 249);
 
-  --container-bg: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.1)
-  );
+  --container-bg: rgba(255, 255, 255, 0.1);
+
+  --page-bg: rgba(255, 255, 255, 0.4);
 
   --card-box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.5);
   --card-box-shadow-hover: 0 25px 30px rgba(253, 253, 253, 0.8);
+  --launch-card-box-shadow-hover: 0 15px 30px rgba(253, 253, 253, 0.8);
+  --filter-button-box-shadow-hover: 0 8px 8px rgba(253, 253, 253, 0.8);
 
-  --accent-red: rgb(196, 126, 6);
+  --accent-color: rgb(196, 126, 6);
   --main-border-radius: 12px;
 
   --skeleton-gradient: linear-gradient(
@@ -35,7 +37,9 @@
   --title-padding: 10px 20px;
 
   --page-selected-color: rgb(166, 114, 18);
-  --page-hover: #909090;
+  --page-hover: #bcbcbc;
+
+  --input-border-color: #ccc;
 }
 
 :root[data-theme='light'] {
@@ -46,4 +50,7 @@
   --link-color: #1a73e8;
   --link-hover: rgb(97, 164, 252);
   --title-bg: var(--container-bg);
+  --page-bg: var(--container-bg);
+
+  --input-placeholder-text: rgba(5, 5, 5, 0.7);
 }
