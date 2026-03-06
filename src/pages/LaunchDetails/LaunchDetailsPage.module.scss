@@ -1,0 +1,10 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 40px;
+  margin: 0px 40px;
+  border-radius: var(--main-border-radius);
+  background: var(--container-bg);
+}

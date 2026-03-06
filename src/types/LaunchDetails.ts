@@ -1,11 +1,11 @@
 import type { Launch } from './Launch';
 
 export interface LaunchDetails extends Launch {
-  date_utc: string;
+  dateUtc: string;
   links?: {
-    patch: {
-      small?: string;
-      large?: string;
+    patch?: {
+      small: string;
+      large: string;
     };
 
     webcast?: string;

@@ -10,7 +10,7 @@ export const getLaunchDetails = async (
   const launch = await api.get<never, LaunchDetails>(`/launches/${launchId}`);
   const rocket = await api.get<never, Rocket>(`/rockets/${launch.rocket}`);
 
-  return { ...launch, rocketData: rocket };
+  return { launchData: launch, rocketData: rocket };
 };
 
 export const useLaunchDetails = (launchId: string) => {

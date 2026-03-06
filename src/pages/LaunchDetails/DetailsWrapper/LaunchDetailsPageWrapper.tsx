@@ -5,7 +5,7 @@ import LaunchDetailsPage from '../LaunchDetailsPage';
 const LaunchDetailsPageWrapper = () => {
   const { launchId } = useParams<{ launchId: string }>();
 
-  if (!launchId) <NotFoundPage />;
+  if (!launchId) return <NotFoundPage />;
 
   return <LaunchDetailsPage launchId={launchId} />;
 };

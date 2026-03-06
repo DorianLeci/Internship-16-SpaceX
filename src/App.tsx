@@ -5,6 +5,7 @@ import { lazy } from 'react';
 import { ThemeProvider } from '@context/ThemeContext';
 import LaunchesPage from '@pages/LaunchesPage';
 import LaunchDetailsPageWrapper from '@pages/LaunchDetails/DetailsWrapper';
+import NotFoundPage from '@pages/NotFoundPage';
 
 const HomePage = lazy(() => import('@pages/HomePage'));
 
@@ -19,6 +20,7 @@ function App() {
             path={AppPaths.LAUNCH_DETAILS}
             element={<LaunchDetailsPageWrapper />}
           />
+          <Route path={AppPaths.UNKNOWN} element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </ThemeProvider>

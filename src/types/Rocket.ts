@@ -3,5 +3,14 @@ export interface Rocket {
   name: string;
   type: string;
   description?: string;
-  flickr_images?: string[];
+  flickrImages?: string[];
+
+  height?: {
+    meters?: number;
+  };
+  mass?: {
+    kg?: number;
+  };
+
+  firstFlight?: string;
 }

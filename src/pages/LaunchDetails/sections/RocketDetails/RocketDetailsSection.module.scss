@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 80px;
+}
+
+.sectionTitle {
+  color: var(--text-primary);
+  border-bottom: var(--details-title-border);
+  font-size: 36px;
+}
+
+.title {
+  font-size: 32px;
+  color: var(--text-primary);
+}
+
+.label {
+  color: var(--text-secondary);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.value {
+  color: var(--text-primary);
+  font-size: 24px;
+}
+
+.imageContainer {
+  display: flex;
+  gap: 3rem;
+  margin-top: 32px;
+  padding: 30px 20px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+.image {
+  width: 950px;
+  height: auto;
+  border-radius: 30px;
+  box-shadow: var(--image-box-shadow);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}

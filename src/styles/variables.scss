@@ -21,6 +21,7 @@
   --card-box-shadow-hover: 0 25px 30px rgba(253, 253, 253, 0.8);
   --launch-card-box-shadow-hover: 0 15px 30px rgba(253, 253, 253, 0.8);
   --filter-button-box-shadow-hover: 0 8px 8px rgba(253, 253, 253, 0.8);
+  --image-box-shadow: 10px 10px 10px orange;
 
   --accent-color: rgb(196, 126, 6);
   --main-border-radius: 12px;
@@ -40,6 +41,8 @@
   --page-hover: #bcbcbc;
 
   --input-border-color: #ccc;
+
+  --details-title-border: 4px solid orange;
 }
 
 :root[data-theme='light'] {
@@ -53,4 +56,7 @@
   --page-bg: var(--container-bg);
 
   --input-placeholder-text: rgba(5, 5, 5, 0.7);
+
+  --details-title-border: 4px solid var(--light-blue);
+  --image-box-shadow: 10px 10px 10px #33a0e3;
 }

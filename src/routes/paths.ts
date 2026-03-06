@@ -1,8 +1,9 @@
 export const AppPaths = {
   HOME: '/',
   LAUNCHES: '/launches',
-  LAUNCH_DETAILS: '/launch/:launchId',
+  LAUNCH_DETAILS: '/launches/:launchId',
   SHIPS: '/ships',
+  UNKNOWN: '*',
 } as const;
 
 export default AppPaths;
