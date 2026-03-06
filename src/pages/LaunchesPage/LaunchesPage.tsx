@@ -11,56 +11,17 @@ import Pagination from '@components/Pagination';
 import useReveal from 'hooks/useReveal';
 import SectionError from '@components/SectionError';
 import LaunchesPageSkeleton from './Skeleton/LaunchesPageSkeleton';
+import useLaunchesPagination from 'hooks/useLaunchPagination';
+import EmptyState from '@components/EmptyState';
 
 export const PAGE_LIMIT = 20;
 
 const LaunchesPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { filterState, handleSearch, handleFilterChange, handlePageChange } =
+    useLaunchesPagination();
 
-  const search = searchParams.get('search') || '';
-  const filterParam = searchParams.get('filter') as Filter | undefined;
-  const pageParam = parseInt(searchParams.get('page') || '1', 10);
-
-  const [filter, setFilter] = useState<LaunchFilter>({
-    page: pageParam,
-    search,
-    limit: PAGE_LIMIT,
-    filter: filterParam,
-  });
-
-  const { data, isLoading, isError, refetch } = useLaunches(filter);
+  const { data, isLoading, isError, refetch } = useLaunches(filterState);
   const visible = useReveal({ isLoading });
-
-  useEffect(() => {
-    setSearchParams((prev) => {
-      const params = new URLSearchParams(prev);
-
-      if (filter.filter) params.set('filter', filter.filter);
-      else params.delete('filter');
-
-      if (filter.search) params.set('search', filter.search);
-      else params.delete('search');
-
-      params.set('page', filter.page.toString());
-
-      return params;
-    });
-  }, [filter]);
-
-  const handleSearch = useCallback((newSearch: string) => {
-    setFilter((prev) => ({ ...prev, search: newSearch, page: 1 }));
-  }, []);
-
-  const handleFilterChange = useCallback(
-    (newFilterValue: Filter | undefined) => {
-      setFilter((prev) => ({ ...prev, filter: newFilterValue, page: 1 }));
-    },
-    [],
-  );
-
-  const handlePageChange = useCallback((newPage: number) => {
-    setFilter((prev) => ({ ...prev, page: newPage }));
-  }, []);
 
   if (visible) return <LaunchesPageSkeleton />;
 
@@ -68,11 +29,18 @@ const LaunchesPage = () => {
     return <SectionError message="Error loading launches!" onRetry={refetch} />;
   }
 
+  const isEmpty = !visible && data.docs.length === 0;
+
   return (
     <div className={styles.container}>
       <h1>Launches</h1>
-      <SearchBar onSearchChange={handleSearch} value={filter.search || ''} />
+      <SearchBar
+        onSearchChange={handleSearch}
+        value={filterState.search || ''}
+      />
       <FilterBar onFilterChange={handleFilterChange} />
+      {isEmpty && <EmptyState message="No launches found" />}
+
       <div className={styles.cardContainer}>
         {data?.docs.map((launch) => (
           <LaunchCard
@@ -86,8 +54,8 @@ const LaunchesPage = () => {
       </div>
 
       <Pagination
-        pageCount={data?.totalPages}
-        currentPage={filter.page}
+        pageCount={data.totalPages}
+        currentPage={filterState.page}
         onPageChange={handlePageChange}
       />
     </div>
