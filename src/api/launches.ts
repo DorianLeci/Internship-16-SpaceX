@@ -1,5 +1,5 @@
 import type { LaunchesResponse } from '@app-types/Launch';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { api } from '.';
 import type { LaunchFilter } from '@app-types/LaunchFilter';
 
@@ -27,21 +27,18 @@ export const useLaunches = (filter: LaunchFilter) => {
     default:
       break;
   }
-  const queryKey: [string, LaunchFilter] = ['launches', filter];
-  const queryClient = useQueryClient();
+  const queryKey = [
+    'launches',
+    filter.page,
+    filter.limit,
+    filter.search,
+    filter.filter,
+  ];
 
   return useQuery({
     queryKey,
     queryFn: () => getLaunches(filter, query),
-    placeholderData: () => {
-      if (filter.page > 1) {
-        return queryClient.getQueryData<LaunchesResponse>([
-          'launches',
-          { ...filter, page: filter.page - 1 },
-        ]);
-      }
-      return undefined;
-    },
+    placeholderData: keepPreviousData,
     staleTime: 6000,
   });
 };

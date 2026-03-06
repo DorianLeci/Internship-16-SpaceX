@@ -1,0 +1,27 @@
+.paginationContainer {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+li {
+  width: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background: var(--container-bg);
+  border-radius: var(--main-border-radius);
+  transition: background-color 0.2s ease;
+
+  &.selected {
+    background-color: var(--page-selected-color);
+    color: white;
+    font-weight: bold;
+    border-color: #4f46e5;
+  }
+
+  &:hover {
+    background-color: var(--page-hover);
+  }
+}

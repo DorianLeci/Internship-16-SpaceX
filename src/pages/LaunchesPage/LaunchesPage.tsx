@@ -26,37 +26,40 @@ const LaunchesPage = () => {
   });
 
   const { data, isLoading, isError, refetch } = useLaunches(filter);
+  const visible = useReveal({ isLoading });
 
   useEffect(() => {
-    const params = new URLSearchParams();
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
 
-    if (filter.filter) params.set('filter', filter.filter);
-    if (filter.search) params.set('search', filter.search);
+      if (filter.filter) params.set('filter', filter.filter);
+      else params.delete('filter');
 
-    params.set('page', filter.page.toString());
-    setSearchParams(params);
-  }, [filter, setSearchParams]);
+      if (filter.search) params.set('search', filter.search);
+      else params.delete('search');
 
-  const handleSearch = useCallback(
-    (newSearch: string) => {
-      setFilter({ ...filter, search: newSearch, page: 1 });
-    },
-    [filter],
-  );
+      params.set('page', filter.page.toString());
+
+      return params;
+    });
+  }, [filter]);
+
+  const handleSearch = useCallback((newSearch: string) => {
+    setFilter((prev) => ({ ...prev, search: newSearch, page: 1 }));
+  }, []);
 
   const handleFilterChange = useCallback(
     (newFilterValue: Filter | undefined) => {
-      setFilter({ ...filter, filter: newFilterValue, page: 1 });
+      setFilter((prev) => ({ ...prev, filter: newFilterValue, page: 1 }));
     },
-    [filter],
+    [],
   );
 
-  const handlePageChange = useCallback(
-    (newPage: number) => {
-      setFilter({ ...filter, page: newPage });
-    },
-    [filter],
-  );
+  const handlePageChange = useCallback((newPage: number) => {
+    setFilter((prev) => ({ ...prev, page: newPage }));
+  }, []);
+
+  if (visible) return <div style={{ color: 'white' }}>Loadam...</div>;
 
   if (isError || !data) {
     return <SectionError message="Error loading launches!" onRetry={refetch} />;
@@ -65,11 +68,20 @@ const LaunchesPage = () => {
   return (
     <div className={styles.container}>
       <h1>Launches</h1>
-      <SearchBar onSearchChange={handleSearch} />
+      <SearchBar onSearchChange={handleSearch} value={filter.search || ''} />
       <FilterBar onFilterChange={handleFilterChange} />
-      {data?.docs.map((launch) => (
-        <LaunchCard key={launch.id} launch={launch} />
-      ))}
+      <div className={styles.cardContainer}>
+        {data?.docs.map((launch) => (
+          <LaunchCard
+            key={launch.id}
+            name={launch.name}
+            success={launch.success}
+            upcoming={launch.upcoming}
+            details={launch.details}
+          />
+        ))}
+      </div>
+
       <Pagination
         pageCount={data?.totalPages}
         currentPage={filter.page}

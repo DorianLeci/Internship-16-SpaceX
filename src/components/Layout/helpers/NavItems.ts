@@ -5,4 +5,13 @@ interface NavItem {
   path: string;
 }
 
-export const NavItems: NavItem[] = [{ label: 'Home', path: AppPaths.HOME }];
+export const NavItems: NavItem[] = [
+  {
+    label: 'Home',
+    path: AppPaths.HOME,
+  },
+  {
+    label: 'Launches',
+    path: AppPaths.LAUNCHES,
+  },
+];

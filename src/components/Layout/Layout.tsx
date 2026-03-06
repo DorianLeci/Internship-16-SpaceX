@@ -6,6 +6,8 @@ import companyLogo from '@assets/images/SpaceX.png';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import useTheme from 'hooks/useTheme';
 import { ThemeEnum } from '@app-types/Theme';
+import spinningPlanet from '@assets/videos/spinning_planet.mp4';
+import spinningPlanetLight from '@assets/videos/spinning_planet_light.mp4';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,6 +16,9 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const { pathname } = useLocation();
   const { theme, toggleTheme } = useTheme();
+
+  const videoSrc =
+    theme === ThemeEnum.DARK ? spinningPlanet : spinningPlanetLight;
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -34,7 +39,12 @@ const Layout = ({ children }: LayoutProps) => {
           )}
         </button>
       </header>
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <video key={theme} autoPlay loop muted className={styles.bgVideo}>
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+        {children}
+      </main>
     </div>
   );
 };

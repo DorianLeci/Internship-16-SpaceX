@@ -4,16 +4,6 @@ export interface Launch {
   upcoming: boolean;
   success: boolean | null;
   details: string;
-  rocket: {
-    rocket_name: string;
-    rocket_type: string;
-  };
-
-  links: {
-    missionPatch?: string;
-    articleLink?: string;
-    videoLink?: string;
-  };
 }
 
 export interface LaunchesResponse {

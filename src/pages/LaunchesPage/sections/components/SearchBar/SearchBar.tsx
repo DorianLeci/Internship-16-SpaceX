@@ -1,21 +1,27 @@
-import { useEffect, useState, type ChangeEvent } from 'react';
+import { useEffect, useRef, useState, type ChangeEvent } from 'react';
 import styles from './SearchBar.module.scss';
 import { useDebounce } from 'hooks/useDebounce';
 
 interface SearchBarOptions {
+  value: string;
   onSearchChange: (value: string) => void;
 }
 
-const SearchBar = ({ onSearchChange }: SearchBarOptions) => {
-  const [value, setValue] = useState('');
-  const debouncedValue = useDebounce(value);
+const SearchBar = ({ value, onSearchChange }: SearchBarOptions) => {
+  const firstRender = useRef(true);
+  const [internalValue, setInternalValue] = useState(value);
+  const debouncedValue = useDebounce({ value: internalValue });
 
   useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     onSearchChange(debouncedValue);
   }, [debouncedValue]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setInternalValue(e.target.value);
   };
 
   return (
@@ -23,7 +29,7 @@ const SearchBar = ({ onSearchChange }: SearchBarOptions) => {
       <input
         type="text"
         placeholder="Search by mission name"
-        value={value}
+        value={internalValue}
         onChange={handleChange}
       ></input>
     </div>

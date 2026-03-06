@@ -1,5 +1,6 @@
 import ReactPaginate from 'react-paginate';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import styles from './Pagination.module.scss';
 
 interface PaginationProps {
   pageCount: number;
@@ -18,6 +19,11 @@ const Pagination = ({
       pageCount={pageCount}
       forcePage={currentPage - 1}
       onPageChange={(selectedItem) => onPageChange(selectedItem.selected + 1)}
+      containerClassName={styles.paginationContainer}
+      activeClassName={styles.selected}
+      marginPagesDisplayed={1}
+      pageRangeDisplayed={2}
+      renderOnZeroPageCount={null}
     ></ReactPaginate>
   );
 };
