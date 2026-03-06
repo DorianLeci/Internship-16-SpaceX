@@ -10,7 +10,7 @@ const LaunchDetailsSection = ({ launch }: LaunchDetailsProps) => {
   const { name, dateUtc, details, links } = launch;
 
   return (
-    <div className={styles.container}>
+    <section className={styles.section}>
       <h1 className={styles.sectionTitle}>Launch details</h1>
       {links?.patch?.large && (
         <div className={styles.patchWrapper}>
@@ -56,7 +56,7 @@ const LaunchDetailsSection = ({ launch }: LaunchDetailsProps) => {
           </a>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

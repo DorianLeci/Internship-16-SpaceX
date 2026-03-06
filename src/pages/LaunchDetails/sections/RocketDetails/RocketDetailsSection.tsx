@@ -10,7 +10,7 @@ const RocketDetailsSection = ({ rocket }: RocketDetailsProps) => {
     rocket;
 
   return (
-    <div className={styles.container}>
+    <section className={styles.section}>
       <h1 className={styles.sectionTitle}>Rocket details</h1>
       <p className={styles.detail}>
         <span className={styles.label}>Name: </span>
@@ -62,7 +62,7 @@ const RocketDetailsSection = ({ rocket }: RocketDetailsProps) => {
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

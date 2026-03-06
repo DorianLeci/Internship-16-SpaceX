@@ -6,6 +6,7 @@ import FadeInUp from '@components/FadeInUp';
 import styles from './LaunchDetailsPage.module.scss';
 import LaunchDetailsSection from './sections/LaunchDetailsSection/LaunchDetailsSection';
 import RocketDetailsSection from './sections/RocketDetails';
+import LaunchDetailsPageSkeleton from './Skeleton';
 
 interface LaunchDetailsPageOptions {
   launchId: string;
@@ -14,7 +15,7 @@ const LaunchDetailsPage = ({ launchId }: LaunchDetailsPageOptions) => {
   const { data, isLoading, isError, refetch } = useLaunchDetails(launchId);
   const visible = useReveal({ isLoading });
 
-  if (visible) return <p>Loading...</p>;
+  if (visible) return <LaunchDetailsPageSkeleton />;
 
   if (isError)
     return <Error message="Error loading launch details!" onRetry={refetch} />;
