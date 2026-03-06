@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './LaunchCard.module.scss';
 import getStatus from './helpers/getStatus';
+import AppPaths from 'routes/paths';
 
 interface LaunchCardProps {
+  id: string;
   details: string;
   upcoming: boolean;
   success: boolean | null;
@@ -10,14 +13,26 @@ interface LaunchCardProps {
 
 const PREVIEW_LENGTH = 100;
 
-const LaunchCard = ({ details, upcoming, success, name }: LaunchCardProps) => {
+const LaunchCard = ({
+  id,
+  details,
+  upcoming,
+  success,
+  name,
+}: LaunchCardProps) => {
+  const navigate = useNavigate();
+
   const preview = details
     ? details.slice(0, PREVIEW_LENGTH) +
       (details.length > PREVIEW_LENGTH ? '...' : '')
     : 'No details available';
 
+  const handleClick = () => {
+    navigate(`/launches/${id}`);
+  };
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleClick}>
       <h2>
         <strong className={styles.label}>Launch name: </strong>
         <span className={styles.value}>{name}</span>

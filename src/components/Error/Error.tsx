@@ -1,11 +1,11 @@
-import styles from './SectionError.module.scss';
+import styles from './Error.module.scss';
 
-interface SectionErrorProps {
+interface ErrorProps {
   message: string;
   onRetry?: () => void;
 }
 
-const SectionError = ({ message, onRetry }: SectionErrorProps) => {
+const Error = ({ message, onRetry }: ErrorProps) => {
   return (
     <div className={styles.container}>
       <p className={styles.message}>{message}</p>
@@ -18,4 +18,4 @@ const SectionError = ({ message, onRetry }: SectionErrorProps) => {
   );
 };
 
-export default SectionError;
+export default Error;

@@ -5,7 +5,7 @@ import { useNextLaunch } from '@api/nextLaunch';
 import FadeInUp from '@components/FadeInUp';
 import useReveal from 'hooks/useReveal';
 import LaunchCountdownSkeleton from './Skeleton/LaunchCountdownSkeleton';
-import SectionError from '@components/SectionError';
+import Error from '@components/Error';
 
 const CountdownRenderer: CountdownRendererFn = ({
   days,
@@ -48,10 +48,7 @@ const LaunchCountdownSection = () => {
 
   if (isError || !nextLaunch) {
     return (
-      <SectionError
-        message="Error loading next launch countdown"
-        onRetry={refetch}
-      />
+      <Error message="Error loading next launch countdown" onRetry={refetch} />
     );
   }
 

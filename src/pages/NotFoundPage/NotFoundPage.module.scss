@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+}
+
+.title {
+  font-size: 64px;
+}
+
+.subtitle {
+  font-size: 32px;
+}
