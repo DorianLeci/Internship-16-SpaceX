@@ -4,6 +4,7 @@ export interface Launch {
   upcoming: boolean;
   success: boolean | null;
   details: string;
+  dateUtc: string;
 }
 
 export interface LaunchesResponse {

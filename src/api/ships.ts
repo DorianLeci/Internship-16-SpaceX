@@ -3,8 +3,8 @@ import type { ShipQueryResponse } from '@app-types/ShipQueryResponse';
 import { api } from '.';
 import { keepPreviousData, useInfiniteQuery } from '@tanstack/react-query';
 
-export const getShips = async (page: number, limit: number, query: any) => {
-  return await api.post<never, ShipQueryResponse>('/ships/query', {
+export const getShips = (page: number, limit: number, query: any) => {
+  return api.post<never, ShipQueryResponse>('/ships/query', {
     query,
     options: { page, limit: limit, sort: { date_utc: -1 } },
   });

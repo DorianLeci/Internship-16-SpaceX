@@ -25,6 +25,7 @@
     "react-loading-skeleton": "^3.5.0",
     "react-paginate": "^8.3.0",
     "react-router-dom": "^7.13.1",
+    "recharts": "^3.8.0",
     "tanstack": "file:../../../react-query",
     "vite-tsconfig-paths": "^6.1.1"
   },

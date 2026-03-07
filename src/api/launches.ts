@@ -3,8 +3,8 @@ import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { api } from '.';
 import type { LaunchFilter } from '@app-types/LaunchFilter';
 
-export const getLaunches = async (filter: LaunchFilter, query: any) => {
-  return await api.post<never, LaunchesResponse>('/launches/query', {
+export const getLaunches = (filter: LaunchFilter, query: any) => {
+  return api.post<never, LaunchesResponse>('/launches/query', {
     query,
     options: { page: filter.page, limit: filter.limit, sort: { date_utc: -1 } },
   });

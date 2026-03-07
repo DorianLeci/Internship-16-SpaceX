@@ -36,6 +36,7 @@
 .title {
   padding: var(--title-padding);
   color: var(--text-primary);
+  text-align: center;
   font-size: clamp(32px, 3vw, 40px);
   border-radius: var(--main-border-radius);
   background-color: var(--title-bg);
