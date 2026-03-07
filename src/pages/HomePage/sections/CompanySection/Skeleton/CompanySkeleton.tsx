@@ -35,7 +35,8 @@ const CompanySkeleton = () => {
           </div>
           <div className={styles.infoItem}>
             <AnimatedSkeleton width="120px" height="22px" />
-            <AnimatedSkeleton width="480px" height="24px" />
+            <AnimatedSkeleton width="120px" height="22px" />
+            <AnimatedSkeleton width="120px" height="22px" />
           </div>
           <div className={styles.infoItem}>
             <AnimatedSkeleton width="120px" height="22px" />

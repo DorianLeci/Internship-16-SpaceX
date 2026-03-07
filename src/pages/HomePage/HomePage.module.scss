@@ -11,3 +11,9 @@
   gap: 6rem;
   padding: 2rem;
 }
+
+@media (max-width: 768px) {
+  .content {
+    padding: 2rem 18px;
+  }
+}

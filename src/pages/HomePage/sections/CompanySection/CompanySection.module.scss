@@ -3,21 +3,27 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
   padding: 40px 70px;
   border-radius: 12px;
   background: var(--container-bg);
+
+  & > :last-child .value {
+    line-height: 1.5;
+  }
 }
 
 .title {
   padding: var(--title-padding);
   color: var(--text-primary);
-  font-size: 40px;
+  font-size: clamp(32px, 3vw, 40px);
   border-radius: var(--main-border-radius);
   background-color: var(--title-bg);
 }
@@ -36,17 +42,64 @@
 }
 
 .label {
-  font-size: 22px;
+  font-size: clamp(22px, 2vw, 26px);
   font-weight: bold;
   color: var(--text-secondary);
 }
 
 .value {
-  font-size: 24px;
+  font-size: clamp(24px, 2vw, 28px);
   color: var(--text-primary);
+
+  span {
+    display: block;
+  }
 }
 
 .links {
   display: flex;
   gap: 2rem;
+}
+
+.link {
+  font-size: clamp(24px, 2vw, 28px);
+}
+
+@media (max-width: 1100px) {
+  .content {
+    padding: 20px 30px;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    padding: 20px 15px;
+
+    & > :last-child .value {
+      text-align: justify;
+    }
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  .infoItem {
+    text-align: center;
+  }
+
+  .links {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .value {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .content > :last-child .value {
+    text-align: left;
+  }
 }

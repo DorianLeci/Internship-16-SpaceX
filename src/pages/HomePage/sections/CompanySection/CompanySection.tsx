@@ -12,7 +12,7 @@ const CompanySection = () => {
   if (visible) return <CompanySkeleton />;
 
   if (isError || !data)
-    <Error message={'Error loading company info!'} onRetry={refetch} />;
+    return <Error message={'Error loading company info!'} onRetry={refetch} />;
 
   return (
     <FadeInUp className={styles.container}>
@@ -52,8 +52,9 @@ const CompanySection = () => {
           <div className={styles.infoItem}>
             <p className={styles.label}>Headquarters</p>
             <p className={styles.value}>
-              {data.headquarters.address}, {data.headquarters.city},{' '}
-              {data.headquarters.state}
+              <span>{data.headquarters.address}, </span>
+              <span>{data.headquarters.city}, </span>
+              <span>{data.headquarters.state}</span>
             </p>
           </div>
 

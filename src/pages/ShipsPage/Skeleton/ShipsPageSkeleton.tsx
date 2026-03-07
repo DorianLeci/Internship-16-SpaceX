@@ -9,6 +9,7 @@ const ShipsPageSkeleton = () => {
   return (
     <div className={pageStyles.container}>
       <AnimatedSkeleton height="40px" width="300px"></AnimatedSkeleton>
+      <AnimatedSkeleton height="40px" width="300px"></AnimatedSkeleton>
       <div className={pageStyles.cardContainer}>
         {placeholders.map((_, index) => (
           <AnimatedSkeleton
