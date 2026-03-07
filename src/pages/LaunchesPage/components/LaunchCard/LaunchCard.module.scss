@@ -52,6 +52,7 @@
     gap: 1rem;
     height: auto;
   }
+
   .label {
     display: block;
   }
@@ -64,9 +65,7 @@
 
 @media (max-width: 768px) {
   .card {
-    gap: 1rem;
     width: 320px;
-    height: auto;
   }
 
   .skeletonCard {

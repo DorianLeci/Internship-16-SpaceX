@@ -8,6 +8,7 @@ import ShipCard from './components/ShipCard';
 import ShipsPageSkeleton from './Skeleton';
 import UpdateState from '@components/UpdateState';
 import EmptyState from '@components/EmptyState';
+import FadeInUp from '@components/FadeInUp';
 
 export const PAGE_LIMIT = 20;
 
@@ -40,7 +41,7 @@ const ShipsPage = () => {
   if (visible) return <ShipsPageSkeleton />;
 
   return (
-    <div className={styles.container}>
+    <FadeInUp className={styles.container}>
       <h1 className={styles.title}>Ships</h1>
 
       <SearchBar
@@ -66,7 +67,7 @@ const ShipsPage = () => {
       </div>
 
       <div ref={ref} style={{ height: 1 }} />
-    </div>
+    </FadeInUp>
   );
 };
 

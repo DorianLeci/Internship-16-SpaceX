@@ -16,6 +16,7 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1.5rem;
   row-gap: 1.5rem;
+  align-items: center;
 }
 
 .loading {
@@ -24,4 +25,19 @@
   color: white;
   border-radius: var(--main-border-radius);
   background: black;
+}
+
+@media (max-width: 1068px) {
+  .container {
+    padding-bottom: 20px 30px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
 }

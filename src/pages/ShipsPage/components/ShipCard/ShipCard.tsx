@@ -28,7 +28,7 @@ const ShipCard = ({ name, type, active, image }: ShipCardProps) => {
         <img src={image} alt={name} className={styles.shipImage} />
       ) : (
         <div className={styles.placeholderIcon}>
-          <FaShip size={567} />
+          <FaShip />
         </div>
       )}
     </div>
