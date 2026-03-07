@@ -6,7 +6,7 @@ interface FilterBarOptions {
   onFilterChange: (filterValue: Filter | undefined) => void;
 }
 
-const filters: { label: string; value: Filter | undefined }[] = [
+export const filters: { label: string; value: Filter | undefined }[] = [
   { label: 'All', value: undefined },
   { label: 'Success', value: Filter.SUCCESS },
   { label: 'Failure', value: Filter.FAILURE },
@@ -17,7 +17,7 @@ const FilterBar = ({ onFilterChange, currentFilter }: FilterBarOptions) => {
   return (
     <div className={styles.filterBar}>
       {filters.map((f) => (
-        <div className={styles.filterBar} key={f.label}>
+        <div className={styles.filterButtonWrapper} key={f.label}>
           <button
             className={`${styles.filterButton} ${currentFilter == f.value ? styles.active : ''}`}
             onClick={() => onFilterChange(f.value)}

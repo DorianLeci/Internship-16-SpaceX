@@ -5,10 +5,12 @@
 }
 
 .filterButton {
+  display: flex;
+  justify-content: center;
   width: 170px;
   padding: 5px 20px;
   color: var(--text-primary);
-  font-size: 22px;
+  font-size: clamp(20px, 1.5vw, 22px);
   font-weight: bold;
   border: var(--btn-border);
   border-radius: var(--main-border-radius);
@@ -30,5 +32,41 @@
     color: var(--active-btn-color);
     text-shadow: var(--active-btn-text-shadow);
     pointer-events: none;
+  }
+}
+
+.skeletonFilterButton {
+  width: 170px;
+  height: clamp(40px, 5vw, 50px);
+}
+
+@media (max-width: 1068px) {
+  .filterBar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    row-gap: clamp(1.5rem, 2vw, 2rem);
+    width: fit-content;
+  }
+}
+
+@media (max-width: 768px) {
+  .filterBar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+    width: fit-content;
+  }
+
+  .filterButton {
+    flex: 1 1 45%;
+    width: 130px;
+  }
+
+  .skeletonFilterButton {
+    width: 130px;
   }
 }

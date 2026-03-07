@@ -30,13 +30,13 @@
 }
 
 .label {
-  font-size: 22px;
+  font-size: clamp(16px, 1.5vw, 22px);
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 
 .value {
-  font-size: 24px;
+  font-size: clamp(18px, 2vw, 24px);
   color: var(--text-primary);
 }
 
