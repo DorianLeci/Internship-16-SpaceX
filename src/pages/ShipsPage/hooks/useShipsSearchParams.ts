@@ -1,8 +1,7 @@
 import type { ShipFilter } from '@app-types/ShipFilter';
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-const PAGE_LIMIT = 20;
+import { PAGE_LIMIT } from '../ShipsPage';
 
 const useShipsSearchParams = () => {
   const [searchParams, setSearchParams] = useSearchParams();

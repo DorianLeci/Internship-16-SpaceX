@@ -1,14 +1,13 @@
 import AnimatedSkeleton from '@components/AnimatedSkeleton';
-import pageStyles from '../LaunchesPage.module.scss';
-import cardStyles from '../components/LaunchCard/LaunchCard.module.scss';
-import { PAGE_LIMIT } from '../LaunchesPage';
+import pageStyles from '../ShipsPage.module.scss';
+import cardStyles from '../components/ShipCard/ShipCard.module.scss';
+import { PAGE_LIMIT } from '../ShipsPage';
 
-const LaunchesPageSkeleton = () => {
+const ShipsPageSkeleton = () => {
   const placeholders = Array.from({ length: PAGE_LIMIT });
 
   return (
     <div className={pageStyles.container}>
-      <AnimatedSkeleton height="40px" width="300px"></AnimatedSkeleton>
       <AnimatedSkeleton height="40px" width="300px"></AnimatedSkeleton>
       <div className={pageStyles.cardContainer}>
         {placeholders.map((_, index) => (
@@ -22,4 +21,4 @@ const LaunchesPageSkeleton = () => {
   );
 };
 
-export default LaunchesPageSkeleton;
+export default ShipsPageSkeleton;

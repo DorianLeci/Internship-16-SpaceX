@@ -6,9 +6,22 @@
   padding: 20px 60px;
 }
 
+.title {
+  font-size: 48px;
+  color: white;
+}
+
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1.5rem;
   row-gap: 1.5rem;
+}
+
+.loading {
+  text-align: center;
+  font-size: 80px;
+  color: white;
+  border-radius: var(--main-border-radius);
+  background: black;
 }

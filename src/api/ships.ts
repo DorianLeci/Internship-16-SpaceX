@@ -21,6 +21,7 @@ export const useShips = (filter: ShipFilter) => {
     queryFn: ({ pageParam = 1 }) => getShips(pageParam, filter.limit, query),
     getNextPageParam: (lastPage) =>
       lastPage.hasNextPage ? lastPage.nextPage : undefined,
+    placeholderData: keepPreviousData,
     staleTime: 5 * 60 * 1000,
     initialPageParam: 1,
   });

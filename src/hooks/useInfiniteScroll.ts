@@ -7,7 +7,7 @@ interface useInfiniteScrollOptions {
   isFetchingNextPage: boolean;
 }
 
-const useInifniteScroll = ({
+const useInfiniteScroll = ({
   fetchNextPage,
   hasNextPage,
   isFetchingNextPage,
@@ -21,4 +21,4 @@ const useInifniteScroll = ({
   return ref;
 };
 
-export default useInifniteScroll;
+export default useInfiniteScroll;

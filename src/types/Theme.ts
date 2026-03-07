@@ -1,6 +1,4 @@
-export type Theme = 'dark' | 'light';
-
-export const ThemeEnum = {
-  DARK: 'dark' as Theme,
-  LIGHT: 'light' as Theme,
-};
+export enum ThemeEnum {
+  DARK = 'dark',
+  LIGHT = 'light',
+}

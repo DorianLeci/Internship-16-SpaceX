@@ -8,14 +8,14 @@
   width: 170px;
   padding: 5px 20px;
   color: var(--text-primary);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   border: var(--btn-border);
   border-radius: var(--main-border-radius);
   box-shadow: var(--card-box-shadow);
   background: var(--container-bg);
   cursor: pointer;
-  will-change: transform;
+  will-change: transform, box-shadow;
 
   transition:
     transform 0.2s ease,

@@ -1,7 +1,11 @@
 import styles from './UpdateState.module.scss';
 
-const UpdateState = () => {
-  return <div className={styles.updateContainer}>Updating...</div>;
+interface UpdateStateProps {
+  message?: string;
+}
+
+const UpdateState = ({ message = 'Updating...' }: UpdateStateProps) => {
+  return <div className={styles.updateContainer}>{message}</div>;
 };
 
 export default UpdateState;

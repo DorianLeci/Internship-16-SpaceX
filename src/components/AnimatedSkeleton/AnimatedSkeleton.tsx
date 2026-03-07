@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 
 interface AnimatedSkeletonProps {
   width?: string | number;
-  height: string | number;
+  height?: string | number;
   count?: number;
   className?: string;
 }

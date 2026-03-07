@@ -1,4 +1,6 @@
 import styles from './ShipCard.module.scss';
+import placeholderShip from '@assets/images/ship-placeholder.svg';
+import { FaShip } from 'react-icons/fa';
 
 interface ShipCardProps {
   name: string;
@@ -14,7 +16,6 @@ const ShipCard = ({ name, type, active, image }: ShipCardProps) => {
         <strong className={styles.label}>Ship name: </strong>
         <span className={styles.value}>{name}</span>
       </h2>
-      {image && <img src={image} alt={name} className={styles.shipImage} />}
       <p className={styles.detailsPreview}>
         <strong className={styles.label}>Type: </strong>
         <span className={styles.value}>{type}</span>
@@ -23,6 +24,13 @@ const ShipCard = ({ name, type, active, image }: ShipCardProps) => {
         <strong className={styles.label}>Active: </strong>
         <span className={styles.value}>{active ? 'Yes' : 'No'}</span>
       </p>
+      {image ? (
+        <img src={image} alt={name} className={styles.shipImage} />
+      ) : (
+        <div className={styles.placeholderIcon}>
+          <FaShip size={567} />
+        </div>
+      )}
     </div>
   );
 };

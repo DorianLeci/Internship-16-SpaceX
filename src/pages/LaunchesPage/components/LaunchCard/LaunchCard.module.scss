@@ -10,11 +10,11 @@
   box-shadow: var(--card-box-shadow);
   background: var(--container-bg);
   cursor: pointer;
-  will-change: transform;
+  will-change: transform, box-shadow;
 
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-6px);
@@ -28,12 +28,12 @@
 }
 
 .label {
-  font-size: 26px;
+  font-size: 22px;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 
 .value {
-  font-size: 28px;
+  font-size: 24px;
   color: var(--text-primary);
 }

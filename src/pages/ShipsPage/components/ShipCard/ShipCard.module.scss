@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  width: 800px;
+  width: 700px;
+  height: 815px;
   padding: 40px 20px;
   border: var(--card-border);
   border-radius: var(--main-border-radius);
@@ -22,18 +23,34 @@
   }
 }
 
+.skeletonCard {
+  width: 700px;
+  height: 815px;
+  pointer-events: none;
+}
+
 .label {
-  font-size: 26px;
+  font-size: 22px;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 
 .value {
-  font-size: 28px;
+  font-size: 24px;
   color: var(--text-primary);
 }
 
 .shipImage {
   width: 100%;
   aspect-ratio: 1.33;
+  margin-top: 32px;
+  border-radius: 20px;
+  border: var(--image-border);
+  object-fit: cover;
+}
+
+.placeholderIcon {
+  display: flex;
+  justify-content: center;
+  color: var(--placeholder-color);
 }

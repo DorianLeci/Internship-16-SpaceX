@@ -20,11 +20,11 @@ const LaunchesPage = () => {
 
   const { data, isLoading, isError, isFetching, refetch } =
     useLaunches(filterState);
+
   const visible = useReveal({ isLoading });
+  const fetching = useReveal({ isLoading: isFetching, minVisibleTime: 200 });
 
   if (visible) return <LaunchesPageSkeleton />;
-
-  if (isFetching) return <UpdateState />;
 
   if (isError || !data) {
     return <Error message="Error loading launches!" onRetry={refetch} />;
@@ -34,7 +34,7 @@ const LaunchesPage = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Launches</h1>
+      <h1 className={styles.title}>Launches</h1>
       <SearchBar
         onSearchChange={handleSearch}
         placeholder="Search launches by name"
@@ -57,6 +57,7 @@ const LaunchesPage = () => {
             details={launch.details}
           />
         ))}
+        {fetching && <UpdateState message="Loading page..." />}
       </FadeInUp>
 
       <Pagination
