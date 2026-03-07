@@ -1,17 +1,82 @@
-.nav {
+.navContainer {
   display: flex;
   gap: 1rem;
-  font-size: 24px;
+}
+
+.linkContainer {
+  display: flex;
+  gap: 1rem;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.4s ease;
+
+  &.open {
+    opacity: 1;
+    max-height: 500px;
+  }
 }
 
 .link {
   position: relative;
   z-index: 0;
+  width: fit-content;
   color: var(--white-dimmed);
+  font-size: clamp(24px, 3vw, 30px);
   font-weight: 600;
   text-decoration: none;
   text-shadow: 4px 0px 2px black;
   transition:
     color 0.3s ease,
     text-shadow 0.3s ease;
+
+  &.active {
+    color: var(--active-page-color);
+
+    &:hover {
+      color: var(--link-hover);
+    }
+  }
+}
+
+:global(.hamburger) {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  :global(.hamburger) {
+    display: flex;
+    transform: translateY(-5%);
+  }
+
+  :global(.hamburger-inner),
+  :global(.hamburger-inner::before),
+  :global(.hamburger-inner::after) {
+    position: relative;
+    background-color: white;
+  }
+
+  :global(.hamburger.is-active .hamburger-inner),
+  :global(.hamburger.is-active .hamburger-inner::before),
+  :global(.hamburger.is-active .hamburger-inner::after) {
+    background-color: white;
+  }
+
+  :global(.hamburger:hover .hamburger-inner),
+  :global(.hamburger:hover .hamburger-inner::before),
+  :global(.hamburger:hover .hamburger-inner::after) {
+    background-color: var(--accent-color);
+  }
+
+  .linkContainer {
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--main-border-radius);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+  }
 }

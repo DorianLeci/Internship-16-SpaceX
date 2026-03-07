@@ -30,14 +30,16 @@ const Layout = ({ children }: LayoutProps) => {
         <div className={styles.logoWrapper}>
           <img src={companyLogo} className={styles.companyLogo} />
         </div>
-        <NavigationBar />
-        <button className={styles.themeToggleButton} onClick={toggleTheme}>
-          {theme === ThemeEnum.DARK ? (
-            <FaSun size={24} />
-          ) : (
-            <FaMoon size={24} />
-          )}
-        </button>
+        <div className={styles.navWrapper}>
+          <NavigationBar />
+          <button className={styles.themeToggleButton} onClick={toggleTheme}>
+            {theme === ThemeEnum.DARK ? (
+              <FaSun size={36} />
+            ) : (
+              <FaMoon size={36} />
+            )}
+          </button>
+        </div>
       </header>
       <main className={styles.main}>
         <video key={theme} autoPlay loop muted className={styles.bgVideo}>

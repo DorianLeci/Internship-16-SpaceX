@@ -9,7 +9,8 @@
   display: flex;
   gap: 2rem;
   align-items: center;
-  padding: 0px 30px;
+  justify-content: space-between;
+  padding: 10px 80px;
   margin-bottom: 80px;
 }
 
@@ -17,8 +18,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: center;
   overflow: hidden;
   height: 75px;
+}
+
+.companyLogo {
+  height: clamp(70%, 10vw, 90%);
+  width: auto;
+  filter: invert(1) brightness(2.5);
+  transform: translateY(-15%);
+  transform-origin: center left;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.navWrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.themeToggleButton {
+  align-self: center;
+  color: white;
+  border: none;
+  background: none;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    color: var(--accent-color);
+  }
 }
 
 .bgVideo {
@@ -32,15 +67,11 @@
   filter: brightness(0.25);
 }
 
-.companyLogo {
-  height: 100%;
-  width: auto;
-  filter: invert(1) brightness(2.5);
-  transform: translateY(-5%);
-  transform-origin: center left;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 30px;
+  }
+  .themeToggleButton {
+    order: -1;
   }
 }
