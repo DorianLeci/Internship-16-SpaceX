@@ -5,9 +5,14 @@ import { useDebounce } from 'hooks/useDebounce';
 interface SearchBarOptions {
   value: string;
   onSearchChange: (value: string) => void;
+  placeholder?: string;
 }
 
-const SearchBar = ({ value, onSearchChange }: SearchBarOptions) => {
+const SearchBar = ({
+  value,
+  onSearchChange,
+  placeholder,
+}: SearchBarOptions) => {
   const firstRender = useRef(true);
   const [internalValue, setInternalValue] = useState(value);
   const debouncedValue = useDebounce({ value: internalValue });
@@ -28,7 +33,7 @@ const SearchBar = ({ value, onSearchChange }: SearchBarOptions) => {
     <div className={styles.searchBar}>
       <input
         type="text"
-        placeholder="Search by mission name"
+        placeholder={placeholder ?? 'Type your input here...'}
         value={internalValue}
         onChange={handleChange}
       ></input>

@@ -14,4 +14,8 @@ export const NavItems: NavItem[] = [
     label: 'Launches',
     path: AppPaths.LAUNCHES,
   },
+  {
+    label: 'Ships',
+    path: AppPaths.SHIPS,
+  },
 ];

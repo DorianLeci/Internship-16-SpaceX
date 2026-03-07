@@ -1,8 +1,7 @@
 import type { Filter } from './Filter';
+import type { ShipFilter } from './ShipFilter';
 
-export interface LaunchFilter {
+export interface LaunchFilter extends ShipFilter {
   page: number;
-  limit: number;
-  search?: string;
   filter?: Filter;
 }

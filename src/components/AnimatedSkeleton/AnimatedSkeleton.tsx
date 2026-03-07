@@ -4,12 +4,18 @@ import useTheme from 'hooks/useTheme';
 import Skeleton from 'react-loading-skeleton';
 
 interface AnimatedSkeletonProps {
-  width: string | number;
-  height?: string | number;
+  width?: string | number;
+  height: string | number;
   count?: number;
+  className?: string;
 }
 
-const AnimatedSkeleton = ({ width, height, count }: AnimatedSkeletonProps) => {
+const AnimatedSkeleton = ({
+  width,
+  height,
+  count,
+  className,
+}: AnimatedSkeletonProps) => {
   const ref = useShimmer({});
   const { theme } = useTheme();
 
@@ -22,6 +28,7 @@ const AnimatedSkeleton = ({ width, height, count }: AnimatedSkeletonProps) => {
         height={height}
         count={count}
         baseColor={baseColor}
+        className={className}
       />
     </div>
   );

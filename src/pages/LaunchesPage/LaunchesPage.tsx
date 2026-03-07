@@ -6,7 +6,7 @@ import Pagination from '@components/Pagination';
 import useReveal from 'hooks/useReveal';
 import Error from '@components/Error';
 import LaunchesPageSkeleton from './Skeleton/LaunchesPageSkeleton';
-import useLaunchesPagination from 'hooks/useLaunchPagination';
+import useLaunchesPagination from '@pages/LaunchesPage/hooks/useLaunchPagination';
 import EmptyState from '@components/EmptyState';
 import FadeInUp from '@components/FadeInUp';
 import SearchBar from './components/SearchBar';
@@ -37,6 +37,7 @@ const LaunchesPage = () => {
       <h1>Launches</h1>
       <SearchBar
         onSearchChange={handleSearch}
+        placeholder="Search launches by name"
         value={filterState.search || ''}
       />
       <FilterBar

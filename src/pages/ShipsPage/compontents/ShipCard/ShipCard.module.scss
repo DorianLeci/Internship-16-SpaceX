@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  height: 250px;
+  width: 800px;
   padding: 40px 20px;
   border: var(--card-border);
   border-radius: var(--main-border-radius);
@@ -22,11 +22,6 @@
   }
 }
 
-.skeletonCard {
-  height: 250px;
-  pointer-events: none;
-}
-
 .label {
   font-size: 26px;
   text-transform: uppercase;
@@ -36,4 +31,9 @@
 .value {
   font-size: 28px;
   color: var(--text-primary);
+}
+
+.shipImage {
+  width: 100%;
+  aspect-ratio: 1.33;
 }
