@@ -10,7 +10,7 @@
   color: var(--text-primary);
   font-size: 20px;
   font-weight: bold;
-  border: none;
+  border: var(--btn-border);
   border-radius: var(--main-border-radius);
   box-shadow: var(--card-box-shadow);
   background: var(--container-bg);
@@ -24,5 +24,11 @@
   &:hover {
     transform: translateY(-3px);
     box-shadow: var(--filter-button-box-shadow-hover);
+  }
+
+  &.active {
+    color: var(--active-btn-color);
+    text-shadow: var(--active-btn-text-shadow);
+    pointer-events: none;
   }
 }

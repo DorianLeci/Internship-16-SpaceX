@@ -12,10 +12,10 @@ const LaunchDetailsSection = ({ launch }: LaunchDetailsProps) => {
   return (
     <section className={styles.section}>
       <h1 className={styles.sectionTitle}>Launch details</h1>
-      {links?.patch?.large && (
+      {links?.patch?.small && (
         <div className={styles.patchWrapper}>
           <img
-            src={links.patch.large}
+            src={links.patch.small}
             alt={`${name} mission patch`}
             className={styles.patchImage}
           />

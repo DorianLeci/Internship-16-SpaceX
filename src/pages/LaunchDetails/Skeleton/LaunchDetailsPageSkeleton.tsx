@@ -20,11 +20,10 @@ const LaunchDetailsPageSkeleton = () => {
         <AnimatedSkeleton width="200px" height="30px" />
         <AnimatedSkeleton width="200px" height="30px" />
         <AnimatedSkeleton width="200px" height="30px" />
-      </div>
-
-      <div className={rocketStyles.imageContainer}>
-        <AnimatedSkeleton width="950px" height="900px" />
-        <AnimatedSkeleton width="950px" height="900px" />
+        {/* <div className={rocketStyles.imageContainer}>
+          <AnimatedSkeleton width="950px" height="200px" />
+          <AnimatedSkeleton width="950px" height="200px" />
+        </div> */}
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ const Pagination = ({
       onPageChange={(selectedItem) => onPageChange(selectedItem.selected + 1)}
       containerClassName={styles.paginationContainer}
       activeClassName={styles.selected}
+      disabledClassName={styles.disabled}
       marginPagesDisplayed={1}
       pageRangeDisplayed={2}
       renderOnZeroPageCount={null}

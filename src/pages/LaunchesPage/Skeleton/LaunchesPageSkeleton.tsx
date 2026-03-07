@@ -13,7 +13,7 @@ const LaunchesPageSkeleton = () => {
       <div className={pageStyles.cardContainer}>
         {placeholders.map((_, index) => (
           <div key={index} className={cardStyles.skeletonCard}>
-            <AnimatedSkeleton height="250px" width="694px"></AnimatedSkeleton>
+            <AnimatedSkeleton height="250px" width="100%"></AnimatedSkeleton>
           </div>
         ))}
       </div>

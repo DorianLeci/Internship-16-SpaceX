@@ -16,12 +16,15 @@
   --container-bg: rgba(255, 255, 255, 0.1);
 
   --page-bg: rgba(255, 255, 255, 0.4);
+  --page-hover: #ffffff;
 
-  --card-box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.5);
+  --card-box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.7);
   --card-box-shadow-hover: 0 25px 30px rgba(253, 253, 253, 0.8);
   --launch-card-box-shadow-hover: 0 15px 30px rgba(253, 253, 253, 0.8);
   --filter-button-box-shadow-hover: 0 8px 8px rgba(253, 253, 253, 0.8);
   --image-box-shadow: 10px 10px 10px orange;
+
+  --card-border: 3px solid white;
 
   --accent-color: rgb(196, 126, 6);
   --main-border-radius: 12px;
@@ -43,6 +46,10 @@
   --input-border-color: #ccc;
 
   --details-title-border: 4px solid orange;
+
+  --active-btn-color: rgb(124, 239, 124);
+  --active-btn-text-shadow: 0px 2px 10px rgb(147, 250, 147);
+  --btn-border: 4px solid var(--input-border-color);
 }
 
 :root[data-theme='light'] {
@@ -59,4 +66,19 @@
 
   --details-title-border: 4px solid var(--light-blue);
   --image-box-shadow: 10px 10px 10px #33a0e3;
+
+  --card-border: 3px solid var(--text-secondary);
+  --card-box-shadow: 0px 10px 15px var(--light-blue);
+  --launch-card-box-shadow-hover: 0 15px 30px var(--light-blue);
+
+  --page-selected-color: var(--light-blue);
+  --page-hover: #9fd8fb;
+
+  --active-btn-color: rgb(0, 255, 247);
+  --active-btn-text-shadow: 2px 2px 4px black, 0px 2px 20px rgb(0, 255, 247);
+  --filter-button-box-shadow-hover: var(--launch-card-box-shadow-hover);
+
+  --input-border-color: #f5f5f5;
+
+  --accent-color: var(--light-blue);
 }

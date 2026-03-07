@@ -10,6 +10,7 @@ import useLaunchesPagination from 'hooks/useLaunchPagination';
 import EmptyState from '@components/EmptyState';
 import FadeInUp from '@components/FadeInUp';
 import SearchBar from './components/SearchBar';
+import UpdateState from '@components/UpdateState';
 
 export const PAGE_LIMIT = 20;
 
@@ -17,10 +18,13 @@ const LaunchesPage = () => {
   const { filterState, handleSearch, handleFilterChange, handlePageChange } =
     useLaunchesPagination();
 
-  const { data, isLoading, isError, refetch } = useLaunches(filterState);
+  const { data, isLoading, isError, isFetching, refetch } =
+    useLaunches(filterState);
   const visible = useReveal({ isLoading });
 
   if (visible) return <LaunchesPageSkeleton />;
+
+  if (isFetching) return <UpdateState />;
 
   if (isError || !data) {
     return <Error message="Error loading launches!" onRetry={refetch} />;
@@ -35,7 +39,10 @@ const LaunchesPage = () => {
         onSearchChange={handleSearch}
         value={filterState.search || ''}
       />
-      <FilterBar onFilterChange={handleFilterChange} />
+      <FilterBar
+        onFilterChange={handleFilterChange}
+        currentFilter={filterState.filter}
+      />
       {isEmpty && <EmptyState message="No launches found" />}
 
       <FadeInUp className={styles.cardContainer}>

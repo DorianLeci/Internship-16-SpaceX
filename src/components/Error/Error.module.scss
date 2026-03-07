@@ -1,9 +1,10 @@
 .container {
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: 800px;
+  width: 100%;
   padding: 20px;
   border-radius: var(--main-border-radius);
   background: var(--card-bg);
@@ -21,7 +22,7 @@
   box-shadow: var(--card-box-shadow);
   border: none;
   border-radius: var(--main-border-radius);
-  background: var(--accent-red);
+  background: var(--accent-color);
   will-change: transform, box-shadow;
   cursor: pointer;
   transition:

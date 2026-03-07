@@ -17,10 +17,8 @@ const LaunchDetailsPage = ({ launchId }: LaunchDetailsPageOptions) => {
 
   if (visible) return <LaunchDetailsPageSkeleton />;
 
-  if (isError)
+  if (isError || !data)
     return <Error message="Error loading launch details!" onRetry={refetch} />;
-
-  if (!data) return <NotFoundPage />;
 
   const { launchData, rocketData } = data;
 

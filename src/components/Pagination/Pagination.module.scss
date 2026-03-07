@@ -7,17 +7,29 @@
 }
 
 li {
-  display: flex;
-  justify-content: center;
-  width: 50px;
-  padding: 10px 20px;
-  color: var(--text-primary);
   font-size: 20px;
   font-weight: bold;
   background: var(--page-bg);
   border-radius: var(--main-border-radius);
   transition: background-color 0.2s ease;
   cursor: pointer;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 47.5px;
+    color: var(--text-primary);
+
+    &:hover {
+      color: var(--text-primary);
+    }
+
+    &::after {
+      background: none;
+    }
+  }
 
   &.selected {
     background-color: var(--page-selected-color);
@@ -27,6 +39,13 @@ li {
   }
 
   &:hover {
+    color: var(--text-primary);
     background-color: var(--page-hover);
   }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
 }

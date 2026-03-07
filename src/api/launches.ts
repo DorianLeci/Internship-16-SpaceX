@@ -39,6 +39,7 @@ export const useLaunches = (filter: LaunchFilter) => {
     queryKey,
     queryFn: () => getLaunches(filter, query),
     placeholderData: keepPreviousData,
-    staleTime: 6000,
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: false,
   });
 };

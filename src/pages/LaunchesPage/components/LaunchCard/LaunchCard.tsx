@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './LaunchCard.module.scss';
 import getStatus from './helpers/getStatus';
-import AppPaths from 'routes/paths';
 
 interface LaunchCardProps {
   id: string;
