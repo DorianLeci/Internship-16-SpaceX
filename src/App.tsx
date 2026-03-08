@@ -3,12 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from '@components/Layout';
 import { lazy } from 'react';
 import { ThemeProvider } from '@context/ThemeContext';
-import LaunchesPage from '@pages/LaunchesPage';
 import LaunchDetailsPageWrapper from '@pages/LaunchDetails/DetailsWrapper';
 import NotFoundPage from '@pages/NotFoundPage';
-import ShipsPage from '@pages/ShipsPage';
 
 const HomePage = lazy(() => import('@pages/HomePage'));
+const LaunchesPage = lazy(() => import('@pages/LaunchesPage'));
+const ShipsPage = lazy(() => import('@pages/ShipsPage'));
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import CompanySection from './sections/CompanySection';
 import styles from './HomePage.module.scss';
 import LaunchCountdownSection from './sections/LaunchCountdownSection';
-import ChartSection from './sections/ChartSection/ChartSection';
+import LazyChartSection from './sections/ChartSection/LazyChartSection';
 
 const HomePage = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className={styles.content}>
         <CompanySection />
         <LaunchCountdownSection />
-        <ChartSection />
+        <LazyChartSection />
       </div>
     </div>
   );
