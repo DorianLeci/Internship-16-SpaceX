@@ -5,7 +5,12 @@ interface UpdateStateProps {
 }
 
 const UpdateState = ({ message = 'Updating...' }: UpdateStateProps) => {
-  return <div className={styles.updateContainer}>{message}</div>;
+  return (
+    <div className={styles.updateContainer}>
+      <div className={styles.spinner}></div>
+      <span className={styles.message}> {message}</span>
+    </div>
+  );
 };
 
 export default UpdateState;

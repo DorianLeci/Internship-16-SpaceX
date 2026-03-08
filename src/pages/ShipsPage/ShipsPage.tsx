@@ -55,6 +55,7 @@ const ShipsPage = () => {
         {ships.map((ship) => (
           <ShipCard
             key={ship.id}
+            id={ship.id}
             name={ship.name}
             active={ship.active}
             type={ship.type}

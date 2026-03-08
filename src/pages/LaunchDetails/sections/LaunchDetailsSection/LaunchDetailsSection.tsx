@@ -12,7 +12,7 @@ const LaunchDetailsSection = ({ launch }: LaunchDetailsProps) => {
   return (
     <section className={styles.section}>
       <h1 className={styles.sectionTitle}>Launch details</h1>
-      {links?.patch?.small && (
+      {links.patch.small && (
         <div className={styles.patchWrapper}>
           <img
             src={links.patch.small}
@@ -39,19 +39,24 @@ const LaunchDetailsSection = ({ launch }: LaunchDetailsProps) => {
         </p>
       )}
 
-      {links?.article && (
+      {links.article && (
         <p>
           <span className={styles.label}>Article: </span>
-          <a href={links.article} target="_blank" rel="noopener noreferrer">
+          <a
+            className={styles.link}
+            href={links.article}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Read more
           </a>
         </p>
       )}
 
-      {links?.webcast && (
+      {links.webcast && (
         <div className={styles.webcastWrapper}>
           <FaYoutube size={60} color="red" />
-          <a href={links.webcast} target="_blank">
+          <a className={styles.link} href={links.webcast} target="_blank">
             Watch on YouTube
           </a>
         </div>

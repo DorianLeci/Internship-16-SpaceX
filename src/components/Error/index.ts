@@ -1,2 +1,2 @@
-import SectionError from './Error';
-export default SectionError;
+import Error from './Error';
+export default Error;

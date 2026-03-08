@@ -5,7 +5,7 @@
   justify-content: center;
 }
 .patchImage {
-  width: 200px;
+  width: clamp(130px, 20vw, 200px);
   aspect-ratio: 1/1;
   transition: transform 0.5s ease;
 
@@ -17,10 +17,10 @@
 .webcastWrapper {
   display: flex;
   gap: 1rem;
+}
 
-  a {
-    font-size: 22px;
-    font-weight: bold;
-    align-self: center;
-  }
+.link {
+  font-size: clamp(24px, 2vw, 28px);
+  font-weight: bold;
+  align-self: center;
 }

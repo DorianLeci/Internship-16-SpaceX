@@ -3,5 +3,5 @@ export interface Ship {
   name: string;
   type: string;
   active: boolean;
-  image?: string;
+  image?: string | null;
 }
