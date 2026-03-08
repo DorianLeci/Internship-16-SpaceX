@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavItems } from '../helpers/NavItems';
 import styles from './NavigationBar.module.scss';
-import { useState } from 'react';
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
