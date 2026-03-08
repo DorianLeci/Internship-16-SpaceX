@@ -22,25 +22,25 @@ const LaunchDetailsSection = ({ launch }: LaunchDetailsProps) => {
         </div>
       )}
 
-      <p className={styles.detail}>
+      <p>
         <span className={styles.label}>Name: </span>
         <span className={styles.value}>{name}</span>
       </p>
 
-      <p className={styles.detail}>
+      <p>
         <span className={styles.label}>Date: </span>
         <span className={styles.value}>{new Date(dateUtc).toUTCString()}</span>
       </p>
 
       {details && (
-        <p className={styles.detail}>
+        <p>
           <span className={styles.label}>Details: </span>
           <span className={styles.value}>{details}</span>
         </p>
       )}
 
       {links?.article && (
-        <p className={styles.detail}>
+        <p>
           <span className={styles.label}>Article: </span>
           <a href={links.article} target="_blank" rel="noopener noreferrer">
             Read more

@@ -12,11 +12,17 @@
 
 .label {
   color: var(--text-secondary);
-  font-size: 22px;
+  font-size: clamp(22px, 2vw, 26px);
   font-weight: bold;
 }
 
 .value {
   color: var(--text-primary);
-  font-size: 24px;
+  font-size: clamp(24px, 2vw, 28px);
+}
+
+@media (max-width: 768px) {
+  .label {
+    display: block;
+  }
 }

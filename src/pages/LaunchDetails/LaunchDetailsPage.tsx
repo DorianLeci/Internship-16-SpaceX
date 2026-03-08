@@ -23,7 +23,7 @@ const LaunchDetailsPage = ({ launchId }: LaunchDetailsPageOptions) => {
   const { launchData, rocketData } = data;
 
   return (
-    <FadeInUp className={styles.container}>
+    <FadeInUp className={styles.detailsContainer}>
       <LaunchDetailsSection launch={launchData} />
       <RocketDetailsSection rocket={rocketData} />
     </FadeInUp>

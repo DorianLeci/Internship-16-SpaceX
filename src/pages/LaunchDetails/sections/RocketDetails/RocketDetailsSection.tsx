@@ -12,7 +12,7 @@ const RocketDetailsSection = ({ rocket }: RocketDetailsProps) => {
   return (
     <section className={styles.section}>
       <h1 className={styles.sectionTitle}>Rocket details</h1>
-      <p className={styles.detail}>
+      <p>
         <span className={styles.label}>Name: </span>
         <span className={styles.value}>{name}</span>
       </p>

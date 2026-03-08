@@ -34,34 +34,36 @@ const ChartSection = () => {
   return (
     <FadeInUp className={styles.chartContainer}>
       <h2 className={styles.title}>Launches per Year</h2>
-      <ResponsiveContainer>
-        <BarChart data={chartData}>
-          <XAxis
-            dataKey="year"
-            tick={{ fill: isThemeLight ? 'black' : 'white' }}
-          />
-          <YAxis
-            allowDecimals={false}
-            tick={{ fill: isThemeLight ? 'black' : 'white' }}
-          />
-          <Tooltip
-            contentStyle={{
-              backgroundColor: isThemeLight ? '#33a0e3' : 'black',
-              borderRadius: 12,
-              padding: '6px 12px',
-              color: 'white',
-            }}
-            itemStyle={{
-              padding: '6px',
-              color: isThemeLight ? 'black' : 'white',
-            }}
-          />
-          <Bar
-            dataKey="count"
-            fill={isThemeLight ? '#33a0e3' : 'rgb(196, 126, 6)'}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+      <div className={styles.content}>
+        <ResponsiveContainer>
+          <BarChart data={chartData}>
+            <XAxis
+              dataKey="year"
+              tick={{ fill: isThemeLight ? 'black' : 'white' }}
+            />
+            <YAxis
+              allowDecimals={false}
+              tick={{ fill: isThemeLight ? 'black' : 'white' }}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: isThemeLight ? '#33a0e3' : 'black',
+                borderRadius: 12,
+                padding: '6px 12px',
+                color: 'white',
+              }}
+              itemStyle={{
+                padding: '6px',
+                color: isThemeLight ? 'black' : 'white',
+              }}
+            />
+            <Bar
+              dataKey="count"
+              fill={isThemeLight ? '#33a0e3' : 'rgb(196, 126, 6)'}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </FadeInUp>
   );
 };

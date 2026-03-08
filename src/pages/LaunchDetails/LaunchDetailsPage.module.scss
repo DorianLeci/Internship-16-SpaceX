@@ -1,4 +1,4 @@
-.container {
+.detailsContainer {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -8,4 +8,12 @@
   margin: 0px 40px;
   border-radius: var(--main-border-radius);
   background: var(--container-bg);
+}
+
+@media (max-width: 768px) {
+  .detailsContainer {
+    gap: 3rem;
+    padding: 30px 20px;
+    margin: 0px 15px;
+  }
 }

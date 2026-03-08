@@ -5,9 +5,14 @@ import rocketStyles from '../../LaunchDetails/sections/RocketDetails/RocketDetai
 
 const LaunchDetailsPageSkeleton = () => {
   return (
-    <div className={pageStyles.container}>
+    <div className={pageStyles.detailsContainer}>
       <div className={sharedStyles.section}>
-        <AnimatedSkeleton width="300px" height="32px" />
+        <span className={sharedStyles.label}>
+          <AnimatedSkeleton width="300px" height="32px" />
+        </span>
+        <span className={sharedStyles.value}>
+          <AnimatedSkeleton width="300px" height="32px" />
+        </span>
         <AnimatedSkeleton width="200px" height="30px" />
         <AnimatedSkeleton width="200px" height="30px" />
         <AnimatedSkeleton width="200px" height="30px" />
