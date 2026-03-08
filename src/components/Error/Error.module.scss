@@ -11,12 +11,13 @@
 }
 
 .message {
-  font-size: 40px;
+  font-size: clamp(30px, 3vw, 40px);
+  text-align: center;
   font-weight: bold;
 }
 .retryButton {
   padding: 10px 20px;
-  font-size: 36px;
+  font-size: clamp(30px, 3vw, 36px);
   color: white;
   font-weight: bold;
   text-shadow: 0px 4px 2px black;
@@ -38,5 +39,11 @@
   &:active {
     transform: translateY(0);
     box-shadow: 0 8px 8px rgba(239, 28, 28, 0.7);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 5px;
   }
 }
