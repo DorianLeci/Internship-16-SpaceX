@@ -1,20 +1,20 @@
 import { useAllLaunches } from '@api/allLaunches';
-import useReveal from 'hooks/useReveal';
-import usePrepareChartData from './hooks/usePrepareChartData';
 import FadeInUp from '@components/FadeInUp';
-import styles from './ChartSection.module.scss';
+import useReveal from 'hooks/useReveal';
 import {
-  BarChart,
   Bar,
+  BarChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  ResponsiveContainer,
 } from 'recharts';
+import styles from './ChartSection.module.scss';
+import usePrepareChartData from './hooks/usePrepareChartData';
 
+import { ThemeEnum } from '@app-types/Theme';
 import Error from '@components/Error';
 import useTheme from 'hooks/useTheme';
-import { ThemeEnum } from '@app-types/Theme';
 import ChartSectionSkeleton from './Skeleton/ChartSectionSkeleton';
 
 const ChartSection = () => {

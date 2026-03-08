@@ -1,9 +1,9 @@
 import { useCompanyInfo } from '@api/company';
-import styles from './CompanySection.module.scss';
-import CompanySkeleton from './Skeleton';
+import Error from '@components/Error';
 import FadeInUp from '@components/FadeInUp';
 import useReveal from 'hooks/useReveal';
-import Error from '@components/Error';
+import styles from './CompanySection.module.scss';
+import CompanySkeleton from './Skeleton';
 
 const CompanySection = () => {
   const { data, isLoading, isError, refetch } = useCompanyInfo();
@@ -16,7 +16,7 @@ const CompanySection = () => {
 
   return (
     <FadeInUp className={styles.container}>
-      <h2 className={styles.title}>Company info</h2>
+      <h2 className={styles.title}>Company Info</h2>
       <div className={styles.content}>
         <div className={styles.grid}>
           <div className={styles.infoItem}>

@@ -1,11 +1,11 @@
+import { useNextLaunch } from '@api/nextLaunch';
+import Error from '@components/Error';
+import FadeInUp from '@components/FadeInUp';
+import useReveal from 'hooks/useReveal';
 import Countdown, { type CountdownRendererFn } from 'react-countdown';
 import type { CountdownState } from './CountdownState/CountdownState';
 import styles from './LaunchCountdownSection.module.scss';
-import { useNextLaunch } from '@api/nextLaunch';
-import FadeInUp from '@components/FadeInUp';
-import useReveal from 'hooks/useReveal';
 import LaunchCountdownSkeleton from './Skeleton/LaunchCountdownSkeleton';
-import Error from '@components/Error';
 
 const CountdownRenderer: CountdownRendererFn = ({
   days,
@@ -27,7 +27,7 @@ const CountdownRenderer: CountdownRendererFn = ({
 
   return (
     <div className={styles.countdownContainer}>
-      <h2 className={styles.title}>Countdown to the next launch</h2>
+      <h2 className={styles.title}>Countdown to the Next Launch</h2>
       <div className={styles.content}>
         {timeUnits.map((unit) => (
           <div className={styles.card} key={unit.label}>
