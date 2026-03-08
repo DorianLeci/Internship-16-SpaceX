@@ -26,7 +26,7 @@ git clone git@github.com:DorianLeci/Internship-16-SpaceX.git
 ```
 2. Navigate into the project folder:
 ```
-cd Internship-15-Movie-Explorer
+cd Internship-16-SpaceX
 ```
 3. Install dependencies:
 ```
