@@ -22,15 +22,6 @@
   box-shadow: var(--card-box-shadow);
   width: 200px;
   font-weight: bold;
-  will-change: transform, box-shadow;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--card-box-shadow-hover);
-  }
 }
 
 .title {

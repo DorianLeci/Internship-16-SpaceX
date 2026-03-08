@@ -34,6 +34,12 @@
   }
 }
 
+.skeletonButton {
+  width: clamp(32px, 4vw, 48px);
+  height: clamp(32px, 4vw, 48px);
+  margin-bottom: 32px;
+}
+
 @media (max-width: 768px) {
   .detailsContainer {
     padding: 30px 20px;

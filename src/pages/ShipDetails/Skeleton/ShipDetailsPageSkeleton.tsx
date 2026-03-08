@@ -5,6 +5,7 @@ import sectionStyles from '../sections/ShipDetailsSection.module.scss';
 const ShipDetailsPageSkeleton = () => {
   return (
     <div className={pageStyles.detailsContainer}>
+      <AnimatedSkeleton className={pageStyles.skeletonButton} />
       <div className={sectionStyles.section}>
         <AnimatedSkeleton width="300px" height="32px" />
         <AnimatedSkeleton width="200px" height="30px" />

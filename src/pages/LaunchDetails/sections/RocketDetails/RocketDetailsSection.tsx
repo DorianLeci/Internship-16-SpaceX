@@ -1,4 +1,5 @@
 import type { Rocket } from '@app-types/Rocket';
+import useHorizontalScroll from 'hooks/useHorizontalScroll';
 import styles from './RocketDetailsSection.module.scss';
 
 interface RocketDetailsProps {
@@ -8,6 +9,8 @@ interface RocketDetailsProps {
 const RocketDetailsSection = ({ rocket }: RocketDetailsProps) => {
   const { name, type, description, height, mass, firstFlight, flickrImages } =
     rocket;
+
+  const ref = useHorizontalScroll();
 
   return (
     <section className={styles.section}>
@@ -51,7 +54,7 @@ const RocketDetailsSection = ({ rocket }: RocketDetailsProps) => {
       )}
 
       {flickrImages?.length && (
-        <div className={styles.imageContainer}>
+        <div className={styles.imageContainer} ref={ref}>
           {flickrImages.map((img, idx) => (
             <img
               key={idx}

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './LaunchCard.module.scss';
 import getStatus from './helpers/getStatus';
 
@@ -19,19 +19,13 @@ const LaunchCard = ({
   success,
   name,
 }: LaunchCardProps) => {
-  const navigate = useNavigate();
-
   const preview = details
     ? details.slice(0, PREVIEW_LENGTH) +
       (details.length > PREVIEW_LENGTH ? '...' : '')
     : 'No details available';
 
-  const handleClick = () => {
-    navigate(`/launches/${id}`);
-  };
-
   return (
-    <div className={styles.card} onClick={handleClick}>
+    <Link to={`/launches/${id}`} className={styles.card}>
       <h2>
         <strong className={styles.label}>Launch name: </strong>
         <span className={styles.value}>{name}</span>
@@ -48,7 +42,7 @@ const LaunchCard = ({
         <strong className={styles.label}>Success: </strong>
         <span className={styles.value}>{getStatus(success)}</span>
       </p>
-    </div>
+    </Link>
   );
 };
 

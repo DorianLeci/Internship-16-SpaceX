@@ -15,15 +15,7 @@
   border-radius: 12px;
   box-shadow: var(--card-box-shadow);
   background: var(--container-bg);
-  will-change: transform, box-shadow;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
 
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--launch-card-box-shadow-hover);
-  }
   & > :last-child .value {
     line-height: 1.5;
   }
