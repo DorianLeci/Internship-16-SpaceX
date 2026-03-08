@@ -36,11 +36,6 @@
   height: auto;
   border-radius: 30px;
   box-shadow: var(--image-box-shadow);
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: scale(1.02);
-  }
 }
 
 .skeletonImage {
