@@ -8,13 +8,14 @@
   top: 0;
   right: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   font-size: 48px;
   color: white;
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
   pointer-events: none;
 }
 

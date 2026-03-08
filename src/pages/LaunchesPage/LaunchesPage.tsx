@@ -1,16 +1,16 @@
 import { useLaunches } from '@api/launches';
-import FilterBar from './components/FilterBar';
-import styles from './LaunchesPage.module.scss';
-import LaunchCard from './components/LaunchCard';
-import Pagination from '@components/Pagination';
-import useReveal from 'hooks/useReveal';
-import Error from '@components/Error';
-import LaunchesPageSkeleton from './Skeleton/LaunchesPageSkeleton';
-import useLaunchesPagination from '@pages/LaunchesPage/hooks/useLaunchPagination';
 import EmptyState from '@components/EmptyState';
+import Error from '@components/Error';
 import FadeInUp from '@components/FadeInUp';
-import SearchBar from './components/SearchBar';
+import Pagination from '@components/Pagination';
 import UpdateState from '@components/UpdateState';
+import useLaunchesPagination from '@pages/LaunchesPage/hooks/useLaunchPagination';
+import useReveal from 'hooks/useReveal';
+import FilterBar from './components/FilterBar';
+import LaunchCard from './components/LaunchCard';
+import SearchBar from './components/SearchBar';
+import styles from './LaunchesPage.module.scss';
+import LaunchesPageSkeleton from './Skeleton/LaunchesPageSkeleton';
 
 export const PAGE_LIMIT = 20;
 
@@ -33,7 +33,7 @@ const LaunchesPage = () => {
   const isEmpty = !visible && data.docs.length === 0;
 
   return (
-    <div className={styles.container}>
+    <FadeInUp className={styles.container}>
       <h1 className={styles.title}>Launches</h1>
       <SearchBar
         onSearchChange={handleSearch}
@@ -46,7 +46,7 @@ const LaunchesPage = () => {
       />
       {isEmpty && <EmptyState message="No launches found" />}
 
-      <FadeInUp className={styles.cardContainer}>
+      <div className={styles.cardContainer}>
         {data?.docs.map((launch) => (
           <LaunchCard
             key={launch.id}
@@ -58,14 +58,14 @@ const LaunchesPage = () => {
           />
         ))}
         {fetching && <UpdateState message="Loading page..." />}
-      </FadeInUp>
+      </div>
 
       <Pagination
         pageCount={data.totalPages}
         currentPage={filterState.page}
         onPageChange={handlePageChange}
       />
-    </div>
+    </FadeInUp>
   );
 };
 

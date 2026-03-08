@@ -44,8 +44,11 @@
 }
 
 .title {
-  font-size: clamp(32px, 3vw, 40px);
+  padding: var(--title-padding);
   color: var(--text-primary);
+  font-size: clamp(32px, 3vw, 40px);
+  border-radius: var(--main-border-radius);
+  background-color: var(--title-bg);
 }
 
 @media (max-width: 768px) {

@@ -1,17 +1,17 @@
-import AppPaths from './routes/paths';
-import { Route, Routes } from 'react-router-dom';
-import Layout from '@components/Layout';
-import { lazy } from 'react';
-import { ThemeProvider } from '@context/ThemeContext';
-import NotFoundPage from '@pages/NotFoundPage';
-import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from '@components/ErrorFallback';
-import LaunchDetailsPage from '@pages/LaunchDetails';
-import ShipDetailsPage from '@pages/ShipDetails';
+import Layout from '@components/Layout';
+import { ThemeProvider } from '@context/ThemeContext';
+import { lazy } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Route, Routes } from 'react-router-dom';
+import AppPaths from './routes/paths';
 
 const HomePage = lazy(() => import('@pages/HomePage'));
 const LaunchesPage = lazy(() => import('@pages/LaunchesPage'));
 const ShipsPage = lazy(() => import('@pages/ShipsPage'));
+const LaunchDetailsPage = lazy(() => import('@pages/LaunchDetails'));
+const ShipDetailsPage = lazy(() => import('@pages/ShipDetails'));
+const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
 
 function App() {
   return (

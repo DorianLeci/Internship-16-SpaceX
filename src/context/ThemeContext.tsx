@@ -1,9 +1,9 @@
-import { ThemeEnum, type Theme } from '@app-types/Theme';
+import { ThemeEnum } from '@app-types/Theme';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { createContext, useCallback, useEffect, type ReactNode } from 'react';
 
 interface ThemeContextType {
-  theme: Theme;
+  theme: ThemeEnum;
   toggleTheme: () => void;
 }
 
@@ -12,14 +12,16 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 );
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useLocalStorage<Theme>({
+  const [theme, setTheme] = useLocalStorage<ThemeEnum>({
     key: 'theme',
     initialValue: ThemeEnum.DARK,
   });
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK);
-  }, [theme]);
+    setTheme((prevTheme) =>
+      prevTheme === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK,
+    );
+  }, [setTheme]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
